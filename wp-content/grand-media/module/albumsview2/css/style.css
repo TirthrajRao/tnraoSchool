@@ -1,0 +1,1294 @@
+.gmedia_gallery.albumsview_module {
+    direction: ltr;
+}
+.gmedia_gallery.albumsview_module *
+{
+    box-sizing: border-box !important;
+    line-height: 1.4;
+}
+.gmAlbumsViewFL_clearfix::after {
+    visibility: hidden;
+    display: block;
+    font-size: 0px;
+    content: " ";
+    clear: both;
+    height: 0px;
+}
+.gmNoneTransition {
+    transition: none !important;
+}
+/******************************** Preloader *************************/
+.gmAlbumsViewFL_Preloader {
+    min-height: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+    z-index: 100;
+}
+@keyframes spinner {
+    0% { transform: rotate(-360deg); }
+    100% { transform: rotate(0deg); }
+}
+@keyframes _spinner {
+    to {
+        transform: rotate(-1440deg);
+    }
+}
+.gmAlbumsViewFL_Preloader .c-spinner {
+    animation: 1s spinner linear infinite;
+}
+@keyframes gmFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+/******************************** SplashPage *************************/
+.gmAlbumsViewFL_splashPage{
+    position: relative;
+    width: 100%;
+    min-height: 200px;
+}
+.gmAlbumsViewFL_splashPage .gm_term_wrap
+{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 20px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity .5s;
+}
+.gmAlbumsViewFL_splashPage .gm_term_wrap.gm_tags
+{
+    padding: 20px 0;
+}
+/******************************** GM AlbumsView Cover Thumb TAGS *************************/
+.gmAlbumsViewFLTagWrap {
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 4px;
+    margin-right: 5px;
+}
+.gmAlbumsViewFLTagCover {
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 2px;
+    border-top-left-radius: 7px;
+    background: #000;
+    color: #FFF;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 10px;
+    padding-left: 25px;
+    margin: 2px 7px 2px 7px;
+    font: normal 18px sans-serif;
+    position: relative;
+    cursor: pointer;
+    transition: 0.4s;
+}
+.gmAlbumsViewFLTagCover:after {
+    content: "";
+    width: 6px;
+    height: 6px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background: #FFF;
+    position: absolute;
+    left: 7px;
+    top: 12px;
+    box-shadow: inset 1px 1px 0 #CCC;
+}
+
+.gmAlbumsViewFLTagCoverNnotification {
+    font-size: 14px;
+    position: absolute;
+    display: inline-block;
+    vertical-align: top;
+    top: -14px;
+    right: -14px;
+    border: 2px solid #fff;
+    border-radius: 13px;
+    min-width: 26px;
+    height: 26px;
+    padding-left: 3px;
+    padding-right: 3px;
+    line-height: 22px;
+    text-align: center;
+    background: #000;
+    font-family: arial;
+    color: #fff;
+    /*z-index: 10;*/
+    transition: top 0.3s;
+}
+
+.gmAlbumsViewFLTagCoverNnotification.hover {
+    top: -19px;
+}
+/******************************** GM AlbumsView Accordion Cover Thumb *************************/
+.gmAlbumsViewFLAccordion {
+    margin-top: 40px;
+}
+.gmAlbumsViewFLAccordionAlbumCover {
+    position: absolute;
+    overflow: hidden;
+    transition: transform 0.5s;
+    /*cubic-bezier(0.15, 0.33, 0.5, 0.88);*/
+}
+.gmAlbumsViewFLAccordionAlbumCover .backgroundImageWrap {
+    position: absolute;
+    transition: transform 0.5s;
+    /*cubic-bezier(0.15, 0.33, 0.5, 0.88);*/
+}
+.gmAlbumsViewFLAccordionAlbumCover .backgroundImageWrap.no_cover_image
+{
+
+}
+.gmAlbumsViewFLAccordionAlbumCover .backgroundImageWrap img {
+    position: absolute;
+    display: block;
+    border: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    max-height: none !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    min-width: 0 !important;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.gmAlbumsViewFLAccordionAlbumCover .gmDescriptionWrap
+{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    -webkit-backface-visibility: hidden;
+    transform-origin: left bottom;
+    transition: transform 0.6s;
+    transition-delay: 0.2s;
+}
+.gmAlbumsViewFLAccordionAlbumCoverTitleBg {
+    position: absolute;
+    transform-origin: top left;
+    width: 1px;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.7);
+    -webkit-backface-visibility: hidden;
+    transition: transform 0.6s cubic-bezier(0.79, 0.03, 0.4, 1.01);
+    /*cubic-bezier(0.15, 0.33, 0.5, 0.88);
+    /*bezier(0.08, 0.75, 0.48, 0.56);*/
+}
+.gmAlbumsViewFLAccordionAlbumCoverTitle {
+    position: absolute;
+    font-weight: 600;
+    padding: 3px 0;
+    white-space: nowrap;
+    -webkit-font-smoothing: antialiased;
+    transform-origin: top left;
+    will-change: transform;
+    transition: .6s cubic-bezier(0.79, 0.03, 0.4, 1.01);
+}
+.gmAlbumsViewFLAccordionAlbumCoverTitle div
+{
+    display: inline-block;
+}
+.gmAlbumsViewFLAccordionAlbumCoverDescription {
+    position: absolute;
+    -webkit-font-smoothing: antialiased;
+    text-align: left;
+    padding: 2px 0 5px 0;
+    opacity: 0;
+}
+.gmAlbumsViewFLAccordionAlbumCoverPrevNextButton {
+    /*display: none;*/
+    visibility: hidden;
+    position: absolute;
+    height: 140px;
+    width: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    backface-visibility: hidden;
+    -webkit-filter: drop-shadow( 1px 1px 2px #000);
+    filter: drop-shadow( 1px 1px 2px #000);
+}
+.gmAlbumsViewFLAccordionAlbumCoverPrevNextButton .gm_icon
+{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    top:50%;
+    transform: translateY(-50%);
+}
+.gmAlbumsViewFLAccordionAlbumCoverPrevNextButton .gm_icon svg{
+    width: 100% !important;
+    height: 100% !important;
+    vertical-align: baseline !important;
+}
+.gmAlbumsViewFLAccordionAlbumCoverPrevNextButton .gmAlbumsViewFLAccordionAlbumCoverPrevNextButtonLabel {
+    position: absolute;
+    font-size: 14px;
+    font-weight: bold;
+    white-space: nowrap;
+    pointer-events: none;
+    line-height: 50px;
+    top:50%;
+    transform: translateY(-50%);
+    /*display: none;*/
+    transition: opacity 0.5s;
+    /*visibility: hidden;*/
+    opacity: 0;
+}
+.gmAlbumsViewFLAccordionAlbumCoverPrevNextButton.hover .gmAlbumsViewFLAccordionAlbumCoverPrevNextButtonLabel {
+    /*display: block;*/
+    /*visibility: visible;*/
+    opacity: 1;
+}
+/******************************** Term Collection **********************/
+.gmAlbumsViewFLTermCollection *{
+    box-sizing: border-box;
+    line-height: 1.4;
+}
+.gmAlbumsViewFLTermCollection svg
+{
+    vertical-align: baseline !important;
+}
+.gmAlbumsViewFLTermCollection{
+    position: fixed;
+    /*overflow: hidden;*/
+    top:0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+.gmAlbumsViewFLTermCollection.gmContent{
+    position: absolute;
+    /*overflow: unset;*/
+    bottom: unset;
+}
+.gmAlbumsViewFLTermCollection .gmAlbumsAnimeBG{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s;
+    transform: translateY(-100%);
+}
+.gmAlbumsViewFLTermCollection .gmAlbumsTermHeader{
+    position: relative;
+    width: 100%;
+    transform: translateY(-100%);
+    overflow: hidden;
+    padding: 10px;
+    transition: transform 0.5s;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05)
+}
+.gmAlbumsViewFLTermCollection .gmAlbumsTermHeader .gmAlbumsTitle{
+    position: relative;
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+.gmAlbumsViewFLTermCollection .gmAlbumsTermHeader .gmAlbumsDescription{
+    position: relative;
+    display: inline-block;
+    max-width: 840px;
+    font-size: 1em;
+    padding: 0 40px;
+}
+.gmAlbumsViewFLTermCollection .gmAlbumsTermHeader .gmAlbumsShareMenu{
+    position: relative;
+    overflow: hidden;
+}
+.gmAlbumsViewFLTermCollection .gmAlbumsTermHeader .gmAlbumsShareMenu .gmAlbumsShareButton{
+    cursor: pointer;
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    padding: 7px;
+}
+.gmAlbumsViewFLTermCollection .gmAlbumsTermHeader .gmAlbumsCloseButton{
+    position: absolute;
+    cursor: pointer;
+    top:0;
+    right: 0;
+    height: 40px;
+    width: 40px;
+    padding: 10px;
+}
+.gmAlbumsShareButton svg, .gmAlbumsCloseButton svg{
+    width: 100%;
+    height: 100%;
+}
+.gmAlbumsViewFLTermCollection .gmAlbumsTermHeaderFixed{
+    position: fixed;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    min-height: 30px;
+    transform: translateY(-100%);
+    overflow: hidden;
+    padding: 10px;
+    transition: transform 0.2s;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05)
+}
+.gmAlbumsViewFLTermCollection .gmAlbumsTermHeaderFixed.gmShow
+{
+    transform: translateY(0);
+}
+.gmAlbumsViewFLTermCollection .gmAlbumsTermHeaderFixed .gmAlbumsTitle{
+    position: relative;
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+.gmAlbumsViewFLTermCollection .gmAlbumsTermHeaderFixed .gmAlbumsShareMenu{
+    position: relative;
+    overflow: hidden;
+}
+.gmAlbumsViewFLTermCollection .gmAlbumsTermHeaderFixed .gmAlbumsShareMenu .gmAlbumsShareButton{
+    cursor: pointer;
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    padding: 7px;
+}
+.gmAlbumsViewFLTermCollection .gmAlbumsTermHeaderFixed .gmAlbumsCloseButton{
+    position: absolute;
+    cursor: pointer;
+    top:0;
+    right: 0;
+    height: 40px;
+    width: 40px;
+    padding: 10px;
+}
+.gmAlbumsViewFLTermCollection .gmAlbumsTermContent{
+    position: relative;
+    width: 100%;
+    padding: 0 40px;
+    min-height: 200px;
+    visibility: hidden;
+}
+.gmAlbumsViewFLTermCollection .gmAlbumsTermContent.miniScreen
+{
+    padding: 0;
+}
+/****************** Item Menu ************/
+.gmAlbumsViewFL_CollectionItemInfoMenu
+{
+    position: relative;
+    overflow: hidden ;
+    float: left ;
+}
+.gmAlbumsViewFL_CollectionItemInfoMenu .itemsButtons
+{
+    position: relative;
+    padding: 9px;
+    width: 38px;
+    height: 38px;
+    cursor: pointer;
+    float: left;
+    transition: background-color .2s, transform .4s ease-out;
+    border-radius: 2px;
+}
+.gmAlbumsViewFL_CollectionItemInfoMenu .lightbox
+{
+    margin-right: 2px;
+}
+.gmAlbumsViewFL_CollectionItemInfoMenu .itemsButtons svg
+{
+    width: 100%;
+    height: 100%;
+    transition: fill .2s, transform .4s ease-out;
+    vertical-align: baseline !important;
+}
+/******************************** Masonry Collection *************************/
+.gmAlbumsViewFL_MasonryCollection{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+.gmAlbumsViewFL_MasonryCollection *{
+    box-sizing: border-box !important;
+}
+.gmAlbumsViewFL_MasonryCollection .gmedia_content .collectionColumn
+{
+    position: relative;
+    float: left;
+}
+.gmAlbumsViewFL_MasonryCollection .gmedia_header, .gmAlbumsViewFL_MasonryCollection .gmedia_content, .gmAlbumsViewFL_MasonryCollection .gmedia_footer
+{
+    position: relative;
+    width: 100%;
+}
+.gmAlbumsViewFL_MasonryCollection .gmedia_header .gmedia_navi
+{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+.gmAlbumsViewFL_MasonryCollection .gmedia_header .termTitle
+{
+    position: relative;
+    display: inline-block;
+    font-size: 28px;
+    line-height: 34px;
+}
+.gmAlbumsViewFL_MasonryCollection .gmedia_header .gmedia_backButton
+{
+    position: relative;
+    float: left;
+    margin: 0 10px 0 0;
+    width: 54px;
+    height: 34px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.gmAlbumsViewFL_MasonryCollection .gmedia_header .gmedia_backButton svg
+{
+    width: 100%;
+    height: 100%;
+    vertical-align: baseline !important;
+}
+.gmAlbumsViewFL_MasonryCollection .gmedia_content{
+    min-height: 200px;
+    overflow: hidden;
+}
+/******************************** Masonry Item *************************/
+.gmAlbumsViewFL_MasonryCollection_Item{
+    position: relative;
+    opacity: 0;
+    transition: opacity 0.45s;
+}
+.gmAlbumsViewFL_MasonryCollection_Item_Inner
+{
+    position: absolute;
+    padding: 1em;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    overflow: hidden;
+}
+.gmAlbumsViewFL_MasonryCollection_Item_Inner .gm_item_badge
+{
+    position: absolute;
+    pointer-events: none;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+}
+.gmAlbumsViewFL_MasonryCollection_Item_Inner .gm_item_badge svg
+{
+    width: 100%;
+    height: 100%;
+}
+.gmAlbumsViewFL_MasonryCollection_Item_MenuHolder
+{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0 .4em 0 0;
+    min-height: 45px;
+    transform: translateY(100%);
+    transition: transform 0.50s;
+}
+.gmAlbumsViewFL_MasonryCollection_Item.hover .gmAlbumsViewFL_MasonryCollection_Item_MenuHolder
+{
+    transform: translateY(0%);
+}
+.gmAlbumsViewFL_MasonryCollection_Item_Hover{
+    position: absolute;
+    background-color: rgba(0, 0, 0, .7);
+    opacity: 0.01;
+    transition: opacity 0.45s;
+}
+.gmAlbumsViewFL_MasonryCollection_Item.hover .gmAlbumsViewFL_MasonryCollection_Item_Hover {
+    opacity: 0.7;
+}
+.gmAlbumsViewFL_MasonryCollection_Item_Inner .item_title {
+    -webkit-transition: -webkit-transform 0.35s;
+    transition: transform 0.35s;
+    -webkit-transform: translate3d(0,20px,0);
+    transform: translate3d(0,20px,0);
+    display: block;
+    text-shadow: rgba(0, 0, 0, 0.35) 0 0 7px;
+    pointer-events: none;
+}
+.gmAlbumsViewFL_MasonryCollection_Item.hover .item_title {
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+}
+.gmAlbumsViewFL_MasonryCollection_Item img
+{
+    display: block;
+    border: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    max-height: none !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+/***************** Tags Cloud *********************/
+.gmAlbumsViewFL_CollectionTagsCloud{
+    position: relative;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 2px;
+    text-align: center;
+}
+.gmAlbumsViewFL_CollectionTagsCloud ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.gmAlbumsViewFL_CollectionTagsCloud ul li::before
+{
+    display: none;
+}
+.gmAlbumsViewFL_CollectionTagsCloud ul li {
+    display: inline-block;
+    max-width: 200px;
+    padding: 5px 8px;
+    margin: 3px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 15px;
+    border-radius: 2px;
+    text-decoration: none;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+/******************************** Modal Window *************************/
+.gmAlbumsViewFL_Modal * {
+    box-sizing: border-box;
+}
+.gmAlbumsViewFL_Modal
+{
+    position: fixed;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    opacity: 0;
+    will-change: opacity;
+    transition: opacity .4s;
+    text-align: center;
+}
+.gmAlbumsViewFL_Modal .gmflexe
+{
+    display: inline-block;
+    width: 0;
+    height: 100%;
+    vertical-align: middle;
+}
+.gmAlbumsViewFL_Modal .gmAlbumsViewFL_ItemShare
+{
+    font-size: 14px;
+    line-height: 1.3;
+    margin: 0 10px;
+    padding-bottom: 10px;
+    max-width: 480px;
+    min-width: 260px;
+    background-color: white;
+    border-radius: 2px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, .15);
+    vertical-align: middle;
+    display: inline-block ;
+    will-change: transform;
+}
+.gmAlbumsViewFL_Modal .gmAlbumsViewFL_ItemShare .gmItemDescription
+{
+    display: block;
+    margin: 0.5em 0 1em 0;
+    font-weight: 400;
+    font-size: 80%;
+    line-height: 1;
+}
+.gmAlbumsViewFL_ItemShare .gmDescriptionWrap .gmItemTitle
+{
+    display: block;
+    font-size: 130%;
+    font-weight: 600;
+    line-height: 1.3;
+}
+.gmAlbumsViewFL_Modal .gmAlbumsViewFL_ItemShare .gmItemShareButtonWrap
+{
+    position: relative;
+    display: inline-block;
+    padding: 0 4px;
+    min-width: 130px;
+    width: 50%;
+    height: 42px;
+}
+.gmAlbumsViewFL_Modal .gmAlbumsViewFL_ItemShare .gmItemShareButtonWrap .gmItemCopyLink
+{
+    background-color: rgb(250, 250, 250);
+    border: solid 1px rgba(0, 0, 0, 0.17);
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: .4s;
+}
+.gmAlbumsViewFL_Modal .gmAlbumsViewFL_ItemShare .gmItemShareButtonWrap .gmItemCopyLink svg
+{
+    width: 40px;
+    height: 40px;
+    padding: 4px;
+    float: left;
+    transition: fill .4s;
+    vertical-align: baseline !important;
+}
+.gmItemShareButtonWrap .gmItemCopyLink .gmSH_title
+{
+    position: absolute;
+    white-space: nowrap;
+    line-height: 41px;
+    left: 41px;
+    right: 10px;
+    overflow: hidden;
+    opacity: .7;
+    transition: .4s;
+}
+.gmAlbumsViewFL_Modal .gmAlbumsViewFL_ItemShare .gmItemCopyLink:hover
+{
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .2);
+}
+.gmAlbumsViewFL_Modal .gmAlbumsViewFL_ItemShare .gmItemCopyLink:hover .gmSH_title
+{
+    opacity: 1;
+}
+.gmAlbumsViewFL_Modal .gmAlbumsViewFL_ItemShare .gmItemShareButton
+{
+    border: 1px solid;
+    border-color: rgba(0, 0, 0, 0.18);
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+    background-color: rgb(250, 250, 250);
+    transition: .4s;
+}
+.gmAlbumsViewFL_Modal .gmAlbumsViewFL_ItemShare .gmItemShareButton:hover
+{
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .2);
+}
+.gmAlbumsViewFL_Modal .gmAlbumsViewFL_ItemShare .gmItemShareButton:hover .gmSH_title
+{
+    opacity: 1;
+}
+.gmAlbumsViewFL_Modal .gmAlbumsViewFL_ItemShare .gmItemShareButton svg
+{
+    width: 40px;
+    height: 40px;
+    float: left;
+    vertical-align: baseline !important;
+}
+.gmAlbumsViewFL_Modal .gmAlbumsViewFL_ItemShare .gmItemShareButton .gmSH_title
+{
+    white-space: nowrap;
+    position: absolute;
+    left: 30px;
+    right: 0;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 41px;
+    text-align: center;
+    opacity: 0.7;
+    transition: opacity .4s;
+}
+.gmAlbumsViewFL_Modal .gmAlbumsViewFL_ItemInfoBar
+{
+    font-size: 14px;
+    line-height: 1.3;
+    margin: 0 10px;
+    padding-bottom: 10px;
+    max-width: 820px;
+    min-width: 260px;
+    background-color: white;
+    border-radius: 2px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, .15);
+    vertical-align: middle;
+    display: inline-block ;
+    will-change: transform;
+}
+.gmAlbumsViewFL_Modal .gmAlbumsViewFL_ItemInfoBar .gmInfoBarCloseButton, .gmAlbumsViewFL_Modal .gmAlbumsViewFL_ItemShare .gmInfoBarCloseButton
+{
+    position: relative;
+    z-index: 11;
+    margin: 10px;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    float: right ;
+    cursor: pointer;
+}
+.gmAlbumsViewFL_Modal .gmAlbumsViewFL_ItemInfoBar .gmInfoBarCloseButton svg, .gmAlbumsViewFL_Modal .gmAlbumsViewFL_ItemShare .gmInfoBarCloseButton svg
+{
+    width: 100%;
+    height: 100%;
+    vertical-align: baseline !important;
+}
+.gmAlbumsViewFL_Modal .gmAlbumsViewFL_ItemInfoBar .gmDescriptionWrap, .gmAlbumsViewFL_Modal .gmAlbumsViewFL_ItemShare .gmDescriptionWrap
+{
+    min-width: 270px;
+    min-height: 44px;
+    padding: 10px 20px 0 20px;
+    float: left;
+    text-align: left;
+}
+.gmAlbumsViewFL_ItemInfoBar .gmDescriptionWrap .gmItemTitle
+{
+    font-size: 130%;
+    font-weight: 600;
+}
+.gmAlbumsViewFL_ItemInfoBar .gmDescriptionWrap .gmItemDescription
+{
+    font-size: 80%;
+    font-weight: 400;
+}
+.gmAlbumsViewFL_ItemInfoBar .gmDescriptionWrap .termsTitle
+{
+    display: inline-block;
+    line-height: 26px;
+    padding: 0 20px 0 3px;
+    position: relative;
+    text-decoration: none;
+    /*float: left;*/
+}
+/*--------------- TAGS ---------------------*/
+.gmAlbumsViewFL_ItemInfoBar .gmDescriptionWrap .terms_list
+{
+    list-style: none;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+}
+.gmAlbumsViewFL_ItemInfoBar .gmDescriptionWrap .terms_list li {
+    float: left;
+}
+.gmAlbumsViewFL_ItemInfoBar .gmDescriptionWrap .gm_tag, .gmAlbumsViewFL_ItemInfoBar .gmDescriptionWrap .gm_album,
+.gmAlbumsViewFL_ItemInfoBar .gmDescriptionWrap .gm_category
+{
+    border-radius: 3px;
+    display: inline-block;
+    height: 26px;
+    line-height: 26px;
+    padding: 0 20px 0 23px;
+    position: relative;
+    margin: 0 5px 10px 0;
+    text-decoration: none;
+    cursor: pointer;
+    transition: .3s;
+}
+/*------------------------------------*/
+.gmAlbumsViewFL_ItemInfoBar .gmDescriptionWrap .gmItemMetaExifValue
+{
+    line-height: 1.9;
+}
+.gmAlbumsViewFL_ItemInfoBar .gmDescriptionWrap .gmItemsDate
+{
+    font-size: 100%;
+    line-height: 1.9;
+}
+.gmAlbumsViewFL_ItemInfoBar .gmDescriptionWrap .gmItemMetaKey
+{
+    float: left;
+    width: 40%;
+    min-width: 80px;
+}
+.gmAlbumsViewFL_ItemInfoBar .gmDescriptionWrap .gmItemMetaValue
+{
+    float: left;
+    white-space: nowrap;
+    text-transform: capitalize;
+}
+.gmAlbumsViewFL_ItemInfoBar .gmDescriptionWrap  .gmItemMetaExifSeparator {
+    font-size: 100%;
+    margin: 0 2px;
+    opacity: .4;
+}
+.gmAlbumsViewFL_Modal .gmAlbumsViewFL_ItemInfoBar .gmDescriptionWrap .likesViewCom
+{
+    position: relative;
+    float: left;
+    width: 31%;
+    min-height: 40px;
+    border: 1px solid;
+    border-color: rgba(0, 0, 0, 0.18);
+    border-radius: 2px;
+    background-color: rgb(250, 250, 250);
+    padding: 4px;
+    margin: 0 1%;
+    text-align: center;
+}
+.gmAlbumsViewFL_Modal .gmAlbumsViewFL_ItemInfoBar .gmDescriptionWrap .likesViewCom svg
+{
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    vertical-align: baseline !important;
+}
+.gmAlbumsViewFL_Modal .gmAlbumsViewFL_ItemInfoBar .gmDescriptionWrap .likesViewCom .counterTxt
+{
+    font-size: 15px;
+    line-height: 1;
+}
+/******************************** CollectionSlider View ********************/
+.gmAlbumsViewFL_ColectionSlider *{
+    box-sizing: border-box !important;
+    line-height: 1.4;
+}
+.gmAlbumsViewFL_hints
+{
+    position: absolute;
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: normal;
+    background-color: rgba(0,0,0,.8);
+    color: white;
+    transform: translateY(-100%);
+    border-radius: 2px;
+    transition: .4s;
+}
+.gmAlbumsViewFL_ColectionSlider
+{
+    position: fixed;
+    z-index: 99999;
+    /*width: 100%;*/
+    /*height: 100vh;*/
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    visibility: hidden;
+    opacity: 0;
+    -ms-touch-action: none;
+    touch-action: none;
+    -webkit-text-size-adjust: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-transition: opacity .4s ease;
+    transition: opacity .4s ease, visibility .4s ease
+}
+.gmAlbumsViewFL_ColectionSliderActivate
+{
+    pointer-events: auto;
+    visibility: visible;
+    opacity: 1;
+}
+.gmAlbumsViewFL_ColectionSlider .gmSliderBg
+{
+    width: 100%;
+    height: 100%;
+    transform: translateZ(0);
+}
+.gmAlbumsViewFL_ColectionSlider .gmAlbumsViewFL_SlidesWrap
+{
+    position: absolute;
+    /*will-change: transform;*/
+    width: 100%;
+    top:0;
+    bottom: 0;
+}
+.gmAlbumsViewFL_ColectionSlider .miniScreen
+{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.gmAlbumsViewFL_SlidesWrap .gmAlbumsViewFL_SliderPage
+{
+    position: absolute;
+    display: block;
+    transform: translate3d(0px,0px,0px);
+    width: 100%;
+    top:0;
+    bottom: 0;
+    left: 0;
+    -webkit-backface-visibility: hidden;
+    overflow: hidden;
+}
+.gmAlbumsViewFL_ColectionSlider .gmAlbumsViewFL_SliderPage .sliderItemsButtons
+{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    transition: transform.5s;
+}
+.gmAlbumsViewFL_SlidesWrap .gmAlbumsViewFL_SliderPage .gmedia_iconHolder
+{
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.6);
+    transform: translateY(-50%) translateX(-50%);
+    left: 50%;
+    top:50%;
+    padding: 30px;
+    visibility: hidden;
+    will-change: transform;
+    cursor: pointer;
+}
+.gmAlbumsViewFL_SliderPage .gmedia_iconHolder svg
+{
+    width: 100%;
+    height: 100%;
+    fill: rgba(0, 0, 0, 0.4);
+}
+.gmAlbumsViewFL_SliderPage.info_icon .gmedia_iconHolder
+{
+    visibility: visible;
+}
+.gmAlbumsViewFL_SlidesWrap .gmAlbumsViewFL_SliderPage .gmedia_sliderPage_inner
+{
+    position: absolute;
+    display: block;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    overflow: hidden;
+    transform: translate3d(0,0,0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform-origin: left top;
+    transform-origin: left top;
+}
+.gmAlbumsViewFL_SlidesWrap .gmAlbumsViewFL_SliderPage .gmedia_sliderPage_inner img
+{
+    /*will-change: opacity;*/
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    position: absolute !important;
+    display: block !important;
+    border: none !important;
+    max-width: none !important;
+    /*transform-origin: 0 0 !important;*/
+    opacity: 0;
+    padding: 0 !important;
+    margin: 0 !important;
+    transform: translate3d(0,0,0);
+    transition: opacity .35s ease;
+}
+.gmAlbumsViewFL_SliderPage.video_play .gmedia_sliderPage_inner img{
+    visibility: hidden;
+}
+.gmAlbumsViewFL_SlidesWrap .gmAlbumsViewFL_SliderPage .gmedia_sliderPage_inner img.onLoad
+{
+    opacity: 1;
+}
+.gmAlbumsViewFL_SliderPage .gmedia_sliderPage_inner .gmedia_video_wrap
+{
+    position: absolute;
+    display: block;
+    border: none;
+}
+.gmAlbumsViewFL_SliderPage .gmedia_sliderPage_inner .gmedia_video_wrap iframe
+{
+    width: 100% !important;
+    height: 100% !important;
+    top:0;
+    left: 0;
+}
+.gmAlbumsViewFL_SlidesWrap .gmAlbumsViewFL_SliderPage .gmAlbumsViewFL_ItemPage
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left: 0;
+    overflow: hidden;
+}
+.gmedia_SliderImage {
+    position: absolute !important;
+    display: block !important;
+    border: none !important;
+    max-width: none !important;
+    transform-origin: 0 0 !important;
+}
+.gmAlbumsViewFL_SlidesWrap .gmAlbumsViewFL_SliderPage .gmAlbumsViewFL_ItemPage .gmflexe
+{
+    display: inline-block;
+    width: 0;
+    height: 100%;
+    vertical-align: middle;
+}
+.gmAlbumsViewFL_SlidesWrap .gmAlbumsViewFL_SliderPage .gmAlbumsViewFL_ItemPage img
+{
+    position: absolute;
+    display: block;
+    border: none;
+}
+.gmAlbumsViewFL_SlidesWrap .gmAlbumsViewFL_SliderPage .gmAlbumsViewFL_ItemPage .gmedia_video_wrap
+{
+    position: absolute;
+    display: block;
+    border: none;
+}
+.gmAlbumsViewFL_SlidesWrap .gmAlbumsViewFL_SliderPage .gmAlbumsViewFL_ItemPage .gmedia_video_wrap iframe
+{
+    width: 100% !important;
+    height: 100% !important;
+    top:0;
+    left: 0;
+}
+.gmAlbumsViewFL_ColectionSlider .sliderNextPrevButtons
+{
+    position: absolute;
+    width: 50px;
+    height: 34px;
+    top: 50%;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: background-color .2s, transform .4s ease-out;
+    border-radius: 2px;
+}
+.gmAlbumsViewFL_ColectionSlider .sliderNextPrevButtonsMiniScreen
+{
+    display: none;
+}
+.gmAlbumsViewFL_ColectionSlider .sliderNextPrevButtons svg
+{
+    width: 100%;
+    height: 100%;
+    vertical-align: baseline !important;
+}
+.gmAlbumsViewFL_ColectionSlider .sliderItemsButtons
+{
+    position: relative;
+    padding: 9px;
+    width: 38px;
+    height: 38px;
+    margin: 0 2px 2px 0;
+    cursor: pointer;
+    float: left;
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: background-color .2s, transform .4s ease-out;
+    border-radius: 2px;
+}
+.gmAlbumsViewFL_ColectionSlider .sliderItemsButtons svg
+{
+    width: 100%;
+    height: 100%;
+    transition: fill .2s, transform .4s ease-out;
+    vertical-align: baseline !important;
+}
+.gmAlbumsViewFL_ColectionSlider .gmNoneTransition
+{
+    transition: none;
+}
+.gmAlbumsViewFL_ColectionSlider .gmAlbumsViewFL_SlidesHeader
+{
+    position: absolute;
+    height:auto;
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0),rgba(0, 0, 0, 1));
+    width: 100%;
+    top: 0;
+    transform: translateY(-100%);
+    /*will-change: transform;*/
+    transition: transform .4s ease-out;
+}
+.gmAlbumsViewFL_ColectionSlider .gmAlbumsViewFL_SlidesHeaderMiniScreen
+{
+    /*background-color: rgba(0, 0, 0, 0);
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0),rgba(0, 0, 0, 1));*/
+}
+.gmAlbumsViewFL_ColectionSlider .gmAlbumsViewFL_SlidesHeaderActivate
+{
+    transform: translateY(0);
+}
+.gmAlbumsViewFL_ColectionSlider .gmAlbumsViewFL_SlidesFooter
+{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0),rgba(0, 0, 0, 1));
+    transform: translateY(100%);
+    /*will-change: transform;*/
+    transition: transform .4s ease-out;
+}
+.gmAlbumsViewFL_ColectionSlider .gmAlbumsViewFL_SlidesFooterActivate
+{
+    transform: translateY(0);
+}
+.gmAlbumsViewFL_ColectionSlider .gmInfoBox1
+{
+    position: relative;
+    float: left;
+    margin: 10px 20px;
+    overflow: hidden;
+}
+.gmAlbumsViewFL_ColectionSliderItemTitle
+{
+    text-rendering: auto;
+    color: #fff;
+    font-size: 36px;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    line-height: 1;
+    box-sizing: content-box;
+    letter-spacing: 0;
+    text-transform: capitalize;
+    margin-bottom: 5px;
+}
+.gmAlbumsViewFL_ColectionSliderItemTitleMiniScreen
+{
+    padding-bottom: 10px;
+}
+.gmAlbumsViewFL_ColectionSliderTermTitle
+{
+
+}
+.gmAlbumsViewFL_ColectionSliderTermTitleMiniScreen
+{
+
+}
+/******************************** Slider ScrollBar *************************/
+.gmAlbumsViewFL_TermScrollBarWrap
+{
+    position: relative;
+    width: 100%;
+    margin: 10px 0;
+    overflow: hidden;
+}
+.gmAlbumsViewFL_TermScrollBarWrap .gmAlbumsViewFL_ScrollView
+{
+    position: absolute;
+    overflow: hidden;
+}
+.gmAlbumsViewFL_ScrollBarItem
+{
+    position: absolute;
+    height: 80px;
+    width: 100px;
+    overflow: hidden;
+}
+.gmAlbumsViewFL_TermScrollBarWrap .miniScreen
+{
+    height: 50px;
+    width: 70px;
+    margin: 0 0;
+}
+.gmAlbumsViewFL_ScrollBarItem .gmAlbumsViewFL_ScrollBarItemBg
+{
+    position: absolute;
+    left: 3px;
+    right: 3px;
+    top: 3px;
+    bottom: 3px;
+    background-position: center;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.gmAlbumsViewFL_ScrollBarItem .gmAlbumsViewFL_ScrollBarItemHover
+{
+    position: absolute;
+    opacity: 0;
+    transition: opacity .2s;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #fff;
+}
+.gmAlbumsViewFL_ScrollBarItem .gmAlbumsViewFL_ScrollBarItemLink
+{
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    padding: 6px;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translateY(-50%) translateX(-50%);
+}
+.gmAlbumsViewFL_ScrollBarItemLink.rotate svg{
+    animation: 1s spinner linear infinite;
+}
+.gmAlbumsViewFL_ScrollBarItemLink svg
+{
+    width: 100%;
+    height: 100%;
+    fill: rgba(0, 0, 0, 0.58);
+    vertical-align: baseline !important;
+}
+/***************** Audio Content ******************/
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.gmpAudioCoverContainerMultiGrid {
+    border-radius: 50%;
+    height: 300px;
+    width: 300px;
+    overflow: hidden;
+}
+
+.gmAlbusListRotate {
+    animation-name: rotate;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+.gmCircleAudioControllerMultiGridContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    width: 109px;
+    height: 109px;
+    transform: translate3d(-50%, -50%, 0px);
+    overflow: hidden;
+    cursor: pointer;
+}
+.gmCirclebButtonAudioPlayerMultiGrid {
+    position: absolute;
+    display: block;
+    width: 106px;
+    height: 106px;
+    padding: 12px;
+    transition: background 0.3s;
+}
+.gmCirclebButtonAudioPlayerMultiGrid svg {
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    vertical-align: baseline !important;
+}
