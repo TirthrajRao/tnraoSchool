@@ -1,9 +1,6 @@
 <?php
 function mdocs_file_upload() {
-<<<<<<< HEAD
 	$the_error_msg = '';
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 	$current_user = wp_get_current_user();
 	$mdocs = mdocs_array_sort();
 	$mdocs_cats = get_option('mdocs-cats');
@@ -28,20 +25,17 @@ function mdocs_file_upload() {
 	else $mdocs_social = false;
 	$mdocs_non_members = @$_POST['mdocs-non-members'];
 	$mdocs_file_status = $_POST['mdocs-file-status'];
-<<<<<<< HEAD
 	if($mdocs_file_status == '') $mdocs_file_status = 'public';
 	$mdocs_doc_preview = @$_POST['mdocs-doc-preview'];
 	if(!isset($_POST['mdocs-contributors']))  $_POST['mdocs-contributors'] = array();
 	else $_POST['mdocs-contributors'] = array_values($_POST['mdocs-contributors']);
 	if(isset($_POST['mdocs-post-status']) && $_POST['mdocs-post-status'] != '') $mdocs_post_status = $_POST['mdocs-post-status'];
 	else $mdocs_post_status = 'publish';
-=======
 	$mdocs_doc_preview = @$_POST['mdocs-doc-preview'];
 	if(!isset($_POST['mdocs-contributors']))  $_POST['mdocs-contributors'] = array();
 	else $_POST['mdocs-contributors'] = array_values($_POST['mdocs-contributors']);
 	if(isset($_POST['mdocs-post-status'])) $mdocs_post_status = $_POST['mdocs-post-status'];
 	else $mdocs_post_status = $_POST['mdocs-post-status-sys'];
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 	if(!isset($_POST['mdocs-real-author'])) $_POST['mdocs-real-author'] = '';
 	$upload_dir = wp_upload_dir();	
 	$mdocs_user = $current_user->user_login;
@@ -61,7 +55,6 @@ function mdocs_file_upload() {
 			break;
 		}
 	}
-<<<<<<< HEAD
 	if($_FILES['mdocs']['size'] < mdocs_file_upload_max_size()) { 
 		if(!empty($mdocs_cats)) {
 			if($mdocs_type == 'mdocs-add') {
@@ -122,7 +115,6 @@ function mdocs_file_upload() {
 						$_FILES['mdocs']['id'] = $old_doc['id'];
 						$_FILES['mdocs']['post-status'] = $mdocs_post_status;
 						$upload = mdocs_process_file($_FILES['mdocs']);
-=======
 	//MDOCS NONCE VERIFICATION
 	if(mdocs_is_sessions_enabled() == false) mdocs_errors(__('Memphis Documents Library requires sessions to be enable.  Please configure your server to allow for sessions.','memphis-documents-library'), 'error');
 	if($_FILES['mdocs']['size'] < mdocs_file_upload_max_size()) { 
@@ -134,7 +126,6 @@ function mdocs_file_upload() {
 						$upload = mdocs_process_file($_FILES['mdocs'], false);
 						if($mdocs_version == '') $mdocs_version = '1.0';
 						//elseif(!is_numeric($mdocs_version)) $mdocs_version = '1.0';
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 						if(!isset($upload['error'])) {
 							if(get_option('mdocs-preview-type') == 'box' && get_option('mdocs-box-view-key') != '') {
 								$is_image = @getimagesize($upload['file']);
@@ -143,7 +134,6 @@ function mdocs_file_upload() {
 									$upload['type'] = pathinfo($upload['file'], PATHINFO_EXTENSION);;
 									$boxview_file = $boxview->uploadFile($upload);
 									$boxview_file = $boxview_file['entries'][0];
-<<<<<<< HEAD
 									$the_mdoc = get_the_mdoc_by($old_doc['id'], 'id');
 									$boxview->deleteFile($the_mdoc);
 								} else $boxview_file['id'] = 0;
@@ -239,7 +229,6 @@ function mdocs_file_upload() {
 			mdocs_errors($the_error_msg, 'error',true);
 		} else @header('location: '.get_permalink());
 	}
-=======
 								} else $boxview_file['id'] = 0;
 							} else $boxview_file['id'] = 0;
 							array_push($mdocs, array(
@@ -380,15 +369,11 @@ function mdocs_file_upload() {
 			} else mdocs_errors(MDOCS_ERROR_3,'error');
 		} else mdocs_errors(MDOCS_ERROR_4,'error');
 	} else mdocs_errors(__('The file you are trying to upload is bigger than your php.ini files upload_max_filesize.  You will have to increase that value enable to upload this file.','memphis-documents-library'), 'error');
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 }
 
 function mdocs_upload_button($atts) {
 	if(current_user_can('mdocs_allow_upload_frontend')) {
-<<<<<<< HEAD
 		ob_start();
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		if(isset($atts['align'])) {
 			if($atts['align'] == 'center') $align = 'mdocs-float-center';
 			elseif($atts['align'] == 'right') $align = 'mdocs-float-right';
@@ -401,31 +386,24 @@ function mdocs_upload_button($atts) {
 		?>
 		<div class="<?php echo $align; ?>">
 			<button id="mdocs-upload-frontend" data-action-type="add-doc" data-toggle="mdocs-modal" data-target="#mdocs-add-update" class="mdocs-download-btn btn btn-primary" ><?php echo __('Upload File','memphis-documents-library'); ?></button>
-<<<<<<< HEAD
 		</div>	
 		<div style="clear: both;"></div>
 		<?php
 		$the_button = ob_get_clean();
 		return $the_button;
-=======
 		</li>
 		</div>	
 		<div style="clear: both;"></div>
 		<?php
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 	}
 }
 
 function mdocs_check_uploader_options($atts, $type, $func_show, $func_hide) {
-<<<<<<< HEAD
 	//var_dump($type);
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 	$cats = get_option('mdocs-cats');
 	$type_formatted = preg_replace('/ /', '_', $type);
 	$type_options = preg_replace('/ /', '-', $type);
 	if(mdocs_convert_to_boolean(get_option('mdocs-show-upload-'.$type_options)) == false && is_admin()) {
-<<<<<<< HEAD
 		$default_value = mdocs_check_upload_defaults($type_formatted, $type_options, $atts);
 		if(function_exists($func_hide)) call_user_func($func_hide, $default_value);
 		else echo 'Please add a hide-function to your form-data.';
@@ -441,7 +419,6 @@ function mdocs_check_uploader_options($atts, $type, $func_show, $func_hide) {
 					call_user_func($func_show,$cats, $default_value, 'display');
 				} else call_user_func($func_show,$cats, $default_value);
 				?>
-=======
 		$default_value = mdocs_check_upload_defaults($type_formatted, $type_options);
 		call_user_func($func_hide, $default_value);
 	} elseif(!isset($atts[$type_formatted.'_edit']) && !isset($atts[$type_formatted.'_hide']) && !isset($atts['hide_all']) && !isset($atts['edit_all']) || isset($atts[$type_formatted.'_edit']) && mdocs_convert_to_boolean($atts[$type_formatted.'_edit'])  || isset($atts['hide_all']) && mdocs_convert_to_boolean($atts['hide_all']) == false || isset($atts[$type_formatted.'_hide']) && mdocs_convert_to_boolean($atts[$type_formatted.'_hide']) == false || isset($atts['edit_all']) && mdocs_convert_to_boolean($atts['edit_all'] || mdocs_convert_to_boolean(get_option('mdocs-show-upload-'.$type_options)) && is_admin()) ) {
@@ -451,22 +428,18 @@ function mdocs_check_uploader_options($atts, $type, $func_show, $func_hide) {
 			<label class="col-sm-2 control-label" for="mdocs-cat"><?php echo ucwords($type); ?></label>
 			<div class="col-sm-10">
 				<?php call_user_func($func_show,$cats, $default_value); ?>
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 			</div>
 		</div>
 		<?php
 	} else {
-<<<<<<< HEAD
 		$default_value = mdocs_check_upload_defaults($type_formatted, $type_options, $atts);
 		if(isset($atts[$type_formatted.'_hide']) && mdocs_convert_to_boolean($atts[$type_formatted.'_hide']) == false || isset($atts['hide_all']) && mdocs_convert_to_boolean($atts['hide_all']) == false || isset($atts[$type_formatted.'_edit']) && mdocs_convert_to_boolean($atts[$type_formatted.'_edit']) == false|| isset($atts['edit_all']) && mdocs_convert_to_boolean($atts['edit_all']) == false) { ?>
 			<div class="form-group form-group-lg">
 				<label class="col-sm-2 control-label" for="mdocs-<?php echo $type; ?>"><?php echo ucwords($type); ?></label>
-=======
 		$default_value = mdocs_check_upload_defaults($type_formatted, $type_options);
 		if(isset($atts[$type_formatted.'_hide']) && mdocs_convert_to_boolean($atts[$type_formatted.'_hide']) == false || isset($atts['hide_all']) && mdocs_convert_to_boolean($atts['hide_all']) == false || isset($atts[$type_formatted.'_edit']) && mdocs_convert_to_boolean($atts[$type_formatted.'_edit']) == false|| isset($atts['edit_all']) && mdocs_convert_to_boolean($atts['edit_all']) == false) { ?>
 			<div class="form-group form-group-lg">
 				<label class="col-sm-2 control-label" for="mdocs-cat"><?php echo ucwords($type); ?></label>
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 				<div class="col-sm-10">
 					<?php
 					call_user_func($func_hide, $default_value);
@@ -479,7 +452,6 @@ function mdocs_check_uploader_options($atts, $type, $func_show, $func_hide) {
 		}
 	}
 }
-<<<<<<< HEAD
 function mdocs_check_upload_defaults($type_formatted, $type_options, $atts) {
 	$cats = get_option('mdocs-cats');
 	if($type_formatted == 'folder') {
@@ -539,7 +511,6 @@ function mdocs_upload_hide_name($default_value) {
 	<input type=hidden name="mdocs-cat" value="<?php echo $default_value; ?>" >
 	<?php
 }
-=======
 function mdocs_check_upload_defaults($type_formatted, $type_options) {
 	$cats = get_option('mdocs-cats');
 	if(isset($atts[$type_formatted])) {
@@ -569,8 +540,6 @@ function mdocs_check_upload_defaults($type_formatted, $type_options) {
 	} else $default_value = '';
 	return $default_value;
 }
-
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 // FOLDER
 function mdocs_upload_display_folder($cats, $default_value, $display='') {
 	?>
@@ -616,10 +585,7 @@ function mdocs_upload_display_file_status($cats, $default_value, $display='') {
 	<?php
 }
 function mdocs_upload_hide_file_status($default_value) {
-<<<<<<< HEAD
 	if($default_value == 'private') $default_value = 'hidden';
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 	?>
 	<input type=hidden name="mdocs-file-status" value="<?php echo $default_value; ?>" >
 	<?php
@@ -708,11 +674,7 @@ function mdocs_upload_hide_tags($default_value) {
 // CATEGORIES
 function mdocs_upload_display_categories($cats, $default_value, $display='') {
 	$args = array("hide_empty" => 0, "type" => "post", "orderby" => "name", "order" => "ASC" );
-<<<<<<< HEAD
 	$categories = get_categories($args);
-=======
-						$categories = get_categories($args);
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 	?>
 	<select multiple class="form-control" name="mdocs-categories<?php if($display == 'display') echo '-'.$display; ?>[]" <?php if($display == 'display') echo 'disabled'; ?> id="mdocs-post-categories">
 		<?php
@@ -752,15 +714,9 @@ function mdocs_uploader($is_admin=true, $atts=null) {
 		$atts = shortcode_parse_atts($final_shortcode);
 	}
 	$current_user = wp_get_current_user();
-<<<<<<< HEAD
-	
 	
 	if(isset($post->ID)) $the_permalink = get_permalink($post->ID); 
 	else $the_permalink = 'admin.php?page=memphis-documents.php&mdocs-cat=';
-=======
-	$cats = get_option('mdocs-cats');
-	//if(is_admin()) {
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 ?>
 <div class="row">
 	<div class="col-md-12" id="mdocs-add-update-container">
@@ -774,26 +730,16 @@ function mdocs_uploader($is_admin=true, $atts=null) {
 				<input type="hidden" name="mdocs-index" value="" />
 				<input type="hidden" name="mdocs-cat" value="" />
 				<input type="hidden" name="mdocs-pname" value="" />
-<<<<<<< HEAD
 				<!--<input type="hidden" name="mdocs-nonce" value="<?php //echo $_SESSION['mdocs-nonce']; ?>" />-->
 				<input type="hidden" name="mdocs-post-status-sys" value="" />
 				<input type ="hidden" name="mdocs-permalink" value="<?php echo $the_permalink; ?>" />
 				<input type="hidden" name="mdocs-is-admin" value="<?php echo $is_admin; ?>" />
-=======
-				<input type="hidden" name="mdocs-nonce" value="<?php echo $_SESSION['mdocs-nonce']; ?>" />
-				<input type="hidden" name="mdocs-post-status-sys" value="" />
-				
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 				<div class="well well-lg">
 					<div class="page-header">
 						<h2><?php _e('File Properties','memphis-documents-library'); ?></h2>
 					</div>
 					<div class="form-group form-group-lg has-success">
-<<<<<<< HEAD
 						<label class="col-sm-2 control-label" for="mdocs-name"><?php _e('Name','memphis-documents-library'); ?></label>
-=======
-						<label class="col-sm-2 control-label" for="mdocs-name"><?php _e('Title','memphis-documents-library'); ?></label>
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 						<div class="col-sm-10">
 							<input class="form-control" type="text" name="mdocs-name" id="mdocs-name" />
 						</div>
@@ -806,7 +752,6 @@ function mdocs_uploader($is_admin=true, $atts=null) {
 						</div>
 					</div>
 					<?php
-<<<<<<< HEAD
 					/*
 					foreach(get_option('mdocs-displayed-file-info') as $index => $file_info) {
 						if($file_info['is-form']) {
@@ -815,8 +760,6 @@ function mdocs_uploader($is_admin=true, $atts=null) {
 						}
 					}
 					*/
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 					mdocs_check_uploader_options($atts, __('folder','memphis_documents_library'), 'mdocs_upload_display_folder', 'mdocs_upload_hide_folder');
 					mdocs_check_uploader_options($atts, __('version', 'memphis_documents_library'), 'mdocs_upload_display_version', 'mdocs_upload_hide_version');
 					mdocs_check_uploader_options($atts, __('date', 'memphis_documents_library'), 'mdocs_upload_display_date', 'mdocs_upload_hide_date');
@@ -825,18 +768,14 @@ function mdocs_uploader($is_admin=true, $atts=null) {
 					mdocs_check_uploader_options($atts, __('show social apps', 'memphis_documents_library'), 'mdocs_upload_display_social_apps', 'mdocs_upload_hide_social_apps');
 					mdocs_check_uploader_options($atts, __('downloadable by non members', 'memphis_documents_library'), 'mdocs_upload_display_downloadable_nonmembers', 'mdocs_upload_hide_downloadable_nonmembers');
 					mdocs_check_uploader_options($atts, __('contributors', 'memphis_documents_library'), 'mdocs_upload_display_contributors', 'mdocs_upload_hide_contributors');
-<<<<<<< HEAD
 					mdocs_check_uploader_options($atts, __('real author', 'memphis_documents_library'), 'mdocs_upload_display_author', 'mdocs_upload_hide_author');
 					mdocs_check_uploader_options($atts, __('tags', 'memphis_documents_library'), 'mdocs_upload_display_tags', 'mdocs_upload_hide_tags');
 					mdocs_check_uploader_options($atts, __('categories', 'memphis_documents_library'), 'mdocs_upload_display_categories', 'mdocs_upload_hide_categories');
 					mdocs_check_uploader_options($atts, __('description', 'memphis_documents_library'), 'mdocs_upload_display_description', 'mdocs_upload_hide_description');
-					
-=======
 					mdocs_check_uploader_options($atts, __('author', 'memphis_documents_library'), 'mdocs_upload_display_author', 'mdocs_upload_hide_author');
 					mdocs_check_uploader_options($atts, __('tags', 'memphis_documents_library'), 'mdocs_upload_display_tags', 'mdocs_upload_hide_tags');
 					mdocs_check_uploader_options($atts, __('categories', 'memphis_documents_library'), 'mdocs_upload_display_categories', 'mdocs_upload_hide_categories');
 					mdocs_check_uploader_options($atts, __('description', 'memphis_documents_library'), 'mdocs_upload_display_description', 'mdocs_upload_hide_description');
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 					?>
 				</div>
 				<input type="submit" class="btn btn-primary" id="mdocs-save-doc-btn" value="" />

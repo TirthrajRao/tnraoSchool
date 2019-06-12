@@ -7,18 +7,15 @@ function mdocs_load_modals() {
 		load_add_update_modal();
 		load_share_modal();
 		load_description_modal();
-<<<<<<< HEAD
 		//load_versions_modal();
 		load_batch_edit_modal();
 		load_batch_move_modal();
 		load_batch_delete_modal();
 		load_manage_version_modal();
-=======
 		load_versions_modal();
 		load_batch_edit_modal();
 		load_batch_move_modal();
 		load_batch_delete_modal();
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 	} elseif (isset($post) && has_shortcode( $post->post_content, 'mdocs' ) && $post->post_type != 'mdocs-posts' || isset($post) && has_shortcode( $post->post_content, 'mdocs_upload_btn' ) && $post->post_type != 'mdocs-posts') {
 		load_preview_modal();
 		load_ratings_modal();
@@ -133,11 +130,7 @@ function load_batch_edit_modal() {
 					<div class="mdocs-batch-edit-body  mdocs-batch-body mdocs-modal-body" id="mdocs-batch-edit-aria"></div>
 				</div>
 				<div class="modal-footer">
-<<<<<<< HEAD
 					<button type="button" class="btn btn-danger" id="test-test-test" onclick="mdocs_batch_edit_save();"><?php _e('Save', 'memphis-documents-library'); ?></button>
-=======
-					<button type="button" class="btn btn-danger" onclick="mdocs_batch_edit_save();"><?php _e('Save', 'memphis-documents-library'); ?></button>
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 					<button type="button" class="btn btn-default" data-dismiss="modal"><?php _e('Close','memphis-documents-library'); ?></button>
 				</div>
 			</div>
@@ -171,10 +164,6 @@ function load_batch_delete_modal() {
 				<div class="modal-body">
 					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only"><?php _e('Close','memphis-documents-library'); ?></span></button>
 					<div class="mdocs-batch-delete-body mdocs-batch-body mdocs-modal-body" id="mdocs-batch-delete-aria"></div>
-<<<<<<< HEAD
-=======
-					<div id="mdocs-batch-delete-test"></div>
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-danger" onclick="mdocs_batch_delete_save();"><?php _e('Delete', 'memphis-documents-library'); ?></button>
@@ -193,10 +182,6 @@ function load_versions_modal() {
 				<div class="modal-body">
 					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only"><?php _e('Close','memphis-documents-library'); ?></span></button>
 					<div class="mdocs-versions-body mdocs-modal-body" id="mdocs-versions-aria"></div>
-<<<<<<< HEAD
-=======
-					<div id="mdocs-versions-test"></div>
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal"><?php _e('Close','memphis-documents-library'); ?></button>
@@ -206,7 +191,6 @@ function load_versions_modal() {
 	</div>
 	<?php
 }
-<<<<<<< HEAD
 function load_manage_version_modal() {
 	?>
 	<div class="modal fade mdocs-modal" id="mdocs-manage-versions" tabindex="-1" role="dialog" aria-hidden="true">
@@ -224,6 +208,4 @@ function load_manage_version_modal() {
 	</div>
 	<?php
 }
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 ?>

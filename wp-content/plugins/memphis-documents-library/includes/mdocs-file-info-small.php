@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD
 function mdocs_display_file_info($the_mdoc, $index=0, $current_cat, $sortbar_data=null) {
-=======
-function mdocs_display_file_info($the_mdoc, $index=0, $current_cat) {
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 	$the_mdoc_permalink = mdocs_get_permalink($the_mdoc['parent'], true);
 	$the_post = get_post($the_mdoc['parent']);
 	if($the_post != null) $is_new = preg_match('/new=true/',$the_post->post_content);
@@ -13,7 +9,6 @@ function mdocs_display_file_info($the_mdoc, $index=0, $current_cat) {
 	$new_or_updated = '';
 	
 	$the_date = mdocs_format_unix_epoch($the_mdoc['modified']);
-<<<<<<< HEAD
 	if($the_date['gmdate'] > time()) $scheduled = '<small class="text-danger"><em> - '.__('Scheduled').'</em></small>';
 	else $scheduled = '';
 	
@@ -36,7 +31,6 @@ function mdocs_display_file_info($the_mdoc, $index=0, $current_cat) {
 	} else  $status_class = 'mdocs-normal';
 	
 	if($sortbar_data['is-dashboard']) {
-=======
 	if($the_date['gmdate'] > time()) $scheduled = '<small class="text-muted"><em>'.__('Scheduled').'</em></small>';
 	else $scheduled = '';
 	
@@ -59,7 +53,6 @@ function mdocs_display_file_info($the_mdoc, $index=0, $current_cat) {
 	
 	
 	if(is_admin()) {
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		if($the_mdoc['file_status'] == 'hidden' || get_option('mdocs-hide-all-files')) $file_status = '<i class="fa fa-eye-slash" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="'.__('File is Hidden', 'memphis-documents-library').'"></i>';
 		else $file_status = '';
 		if($the_mdoc['post_status'] != 'publish') $post_status = '&nbsp<i class="fa fa-lock" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="'.__('Post is ', 'memphis-documents-library').ucfirst($the_mdoc['post_status']).'"></i>';
@@ -74,22 +67,18 @@ function mdocs_display_file_info($the_mdoc, $index=0, $current_cat) {
 		<tr class="<?php echo $status_class; ?>">
 			<?php
 			$title_colspan = 0;
-<<<<<<< HEAD
 			if($sortbar_data['is-dashboard']) {
 				if(mdocs_check_file_rights($the_mdoc)) {
 					?>
 					<td class="mdocs-file-checkbox"><input type="checkbox" name="mdocs-batch-checkbox" data-id="<?php echo $the_mdoc['id']; ?>"/></td>
-=======
 			if(is_admin()) {
 				if(mdocs_check_file_rights($the_mdoc)) {
 					?>
 					<td><input type="checkbox" name="mdocs-batch-checkbox" data-id="<?php echo $the_mdoc['id']; ?>"/></td>
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 					<?php
 				} else $title_colspan = 2;
 				$dropdown_class = 'mdocs-dropdown-menu';
 			} else $dropdown_class = 'mdocs-dropdown-menu';
-<<<<<<< HEAD
 			if(get_option('mdocs-dropdown-toggle-fix')  && !$sortbar_data['is-dashboard'] ) $data_toogle = '';
 			else $data_toogle = 'dropdown';
 			foreach(mdocs_sort_file_info() as $key => $option) {
@@ -141,7 +130,6 @@ function mdocs_display_file_info($the_mdoc, $index=0, $current_cat) {
 						?>
 						<td class="<?php echo 'mdocs-'.$option['slug']; ?>">
 							<em style="<?php echo 'color: '.$option['color'].';'; ?>" ><?php if(function_exists($the_function)) $the_function($the_mdoc); else echo '"'.$the_function. '" function does not exist.'; ?></em>
-=======
 			if(get_option('mdocs-dropdown-toggle-fix')  && !is_admin() ) $data_toogle = '';
 			else $data_toogle = 'dropdown';
 			?>
@@ -194,16 +182,11 @@ function mdocs_display_file_info($the_mdoc, $index=0, $current_cat) {
 						?>
 						<td class="<?php echo 'mdocs-'.$option['slug']; ?>">
 							<?php if(function_exists($the_function)) $the_function($the_mdoc); else echo '"'.$the_function. '" function does not exist.'; ?>
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 						</td><?php
 					} else {	?>
 						<td class="<?php echo 'mdocs-'.$option['slug']; ?>">
 							<i class="<?php echo $option['icon']; ?>" aria-hidden="true" title="<?php _e($option['text'], 'memphis-documents-library'); ?>"></i>
-<<<<<<< HEAD
 							<em style="<?php echo 'color: '.$option['color'].';'; ?>" ><?php if(function_exists($the_function)) $the_function($the_mdoc); else echo '"'.$the_function. '" function does not exist.'; ?></em>
-=======
-							<em class="<?php echo $option['color']; ?>"><?php if(function_exists($the_function)) $the_function($the_mdoc); else echo '"'.$the_function. '" function does not exist.'; ?></em>
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 						</td><?php
 					}
 				}

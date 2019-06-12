@@ -1,5 +1,4 @@
 <?php
-<<<<<<< HEAD
 function mdocs_default_caps() {
 	mdocs_add_cap('manage-settings', 'Manage Settings', null, array('mdocs_manage_settings', 'manage_options'));
 	mdocs_add_cap('manage-options', 'Manage Options', null, array('mdocs_manage_options'));
@@ -27,8 +26,6 @@ function mdocs_init_view_private() {
 	}
 	update_option('mdocs-caps', $the_caps);
 }
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 function mdocs_manage_roles() {
 	$wp_roles = get_editable_roles();
 	foreach($wp_roles as $index => $role) {
@@ -47,7 +44,6 @@ function mdocs_manage_roles() {
 							}
 						}
 					}
-<<<<<<< HEAD
 				} else {
 					
 					foreach($cap['caps'] as $name) {
@@ -56,20 +52,17 @@ function mdocs_manage_roles() {
 					}
 				} 
 			}
-=======
 				}
 			}
 		} elseif($index == 'administrator') {
 			$role_object->add_cap('mdocs_manage_settings');
 			$role_object->add_cap('mdocs_allow_upload');
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		}
 	}
 }
 
 function mdocs_add_cap($key, $title='', $roles=array(), $caps=array()) {
 	$the_caps = get_option('mdocs-caps');
-<<<<<<< HEAD
 	if(!array_key_exists($key, $the_caps)) {
 		$the_caps[$key] = array('title' => $title, 'roles' => $roles, 'caps' => $caps);
 		$admin_role = get_role('administrator');
@@ -80,14 +73,12 @@ function mdocs_add_cap($key, $title='', $roles=array(), $caps=array()) {
 		}
 		update_option('mdocs-caps', $the_caps);
 	}
-=======
 	$the_caps[$key] = array('title' => $title, 'roles' => $roles, 'caps' => $caps);
 	$role_object = get_role('administrator');
 	foreach($caps as $cap) {
 		$role_object->add_cap($cap);
 	}
 	update_option('mdocs-caps', $the_caps);
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 }
 function mdocs_update_cap($key, $title=null, $roles=null, $caps=null) {
 	$the_caps = get_option('mdocs-caps');

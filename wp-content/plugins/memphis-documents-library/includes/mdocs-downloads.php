@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD
 if(isset($_REQUEST['mdocs-file']) || isset($_REQUEST['mdocs-download-version']) || isset($_REQUEST['mdocs-export-file'])  || isset($_REQUEST['mdocs-preview'])) mdocs_download_file();
-=======
-if(isset($_REQUEST['mdocs-file']) || isset($_REQUEST['mdocs-download-version']) || isset($_REQUEST['mdocs-export-file']) || isset($_REQUEST['mdocs-preview'])) mdocs_download_file();
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 if(isset($_REQUEST['mdocs-img-preview']) ) { mdocs_preview_image(); }
 function mdocs_preview_image() { add_action( 'plugins_loaded', 'mdocs_load_plugins_for_image_preview' ); }
 function mdocs_download_file() { add_action( 'plugins_loaded', 'mdocs_load_plugins_for_download' ); }
@@ -23,11 +19,7 @@ function mdocs_load_plugins_for_download() {
 	// CHECK TYPE OF DOWNLOAD
 	if(isset($_REQUEST['mdocs-export-file']) ) {
 		$current_user = wp_get_current_user();
-<<<<<<< HEAD
 		if(current_user_can('mdocs_manage_settings')) $is_allowed = true;
-=======
-		if(current_user_can('mdocs_download_export')) $is_allowed = true;
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		else $is_allowed = false;
 		$filename = basename(mdocs_sanitize_string($_REQUEST['mdocs-export-file']));
 		$file = sys_get_temp_dir().'/'.$filename;
@@ -64,12 +56,8 @@ function mdocs_load_plugins_for_download() {
 			ob_start();
 			header('Content-Description: File Transfer');
 			header('Content-Type: '.$filetype['type']);
-<<<<<<< HEAD
 			if(get_locale() == 'ko_KR') header('Content-Disposition: attachment; filename='.iconv('UTF-8','euc-kr',$filename));
 			else header('Content-Disposition: attachment; filename="'.$filename.'"');
-=======
-			header('Content-Disposition: attachment; filename="'.$filename.'"');
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 			header('Content-Transfer-Encoding: binary');
 			header('Expires: 0');
 			header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
@@ -79,10 +67,7 @@ function mdocs_load_plugins_for_download() {
 			ob_clean();
 			flush();
 			readfile($file);
-<<<<<<< HEAD
 			if($_REQUEST['mdocs-export-donot-delete'] != 'on') unlink(sys_get_temp_dir().'/mdocs-export.zip');
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 			exit;
 		} else if(!file_exists($file) && $is_box_view == true) die(__('Memphis Documents Error','memphis-documents-library').': '.basename($file).' '.__('was not found, no preview created for this file.', 'memphis-documents-library'));
 		else {
@@ -133,7 +118,6 @@ function mdocs_load_plugins_for_image_preview() {
 	$image_file = sanitize_text_field($_REQUEST['mdocs-img-preview']);
 	//$image_file = sanitize_file_name( $image_file );
 	$upload_dir = wp_upload_dir();
-<<<<<<< HEAD
 	$image = $upload_dir['basedir'].MDOCS_DIR.basename($image_file);
 	if(is_array(getimagesize($image))) { 
 		$content = file_get_contents($image);
@@ -146,13 +130,10 @@ function mdocs_load_plugins_for_image_preview() {
 		header('Content-Type: image/jpeg');
 		echo $content; exit();
 	}
-=======
 	$image = $upload_dir['basedir'].MDOCS_DIR.basename($image_file); 
 	$content = file_get_contents($image);
 	header('Content-Type: image/jpeg');
 	echo $content; exit();
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
-}
 // EXPORT DOWNLOAD
 function mdocs_download_export_file($file) {
 	$file = sys_get_temp_dir()."/mdocs-export.zip";

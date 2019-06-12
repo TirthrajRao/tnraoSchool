@@ -51,16 +51,11 @@ function mdocs_load_preview_iframe($file) {
 	} elseif(get_option('mdocs-preview-type') == 'box' && get_option('mdocs-box-view-key') != '') {
 		$boxview = new mdocs_box_view();
 		$view_file = $boxview->downloadFile($the_mdoc);
-<<<<<<< HEAD
 		if(isset($view_file) && $view_file['type'] != 'error') {
 			if(get_option('mdocs-box-show-print-and-download')) $show_print_and_download = '?showDownload=true';
 			else $show_print_and_download = '';
 			?>
 			<iframe id="mdocs-box-view-iframe" src="<?php echo $view_file['expiring_embed_link']['url'].$show_print_and_download; ?>" seamless fullscreen style="width: 100%; " allowfullscreen="true"></iframe>
-=======
-		if(isset($view_file) && $view_file['type'] != 'error') { ?>
-			<iframe id="mdocs-box-view-iframe" src="<?php echo $view_file['expiring_embed_link']['url']; ?>" seamless fullscreen style="width: 100%; "></iframe>
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 			<script>
 				var screenHeight = window.innerHeight-275;
 				jQuery('#mdocs-box-view-iframe').css({'height': screenHeight})
@@ -184,14 +179,10 @@ function mdocs_show_description($id) {
 		$mdocs_desc = apply_filters('the_content', $the_mdoc['desc']);
 		$mdocs_desc = str_replace('\\','',$mdocs_desc);
 		$the_image_file = preg_replace('/ /', '%20', $the_mdoc['filename']);
-<<<<<<< HEAD
+
 		//$image_size = @getimagesize(get_site_url().'/?mdocs-img-preview='.$the_image_file);
 		$image_size = false;
 		if(get_option('mdocs-preview-type') == 'box' && get_option('mdocs-box-view-key') != '' && strtolower($the_mdoc['type']) != 'zip' && strtolower($the_mdoc['type']) != 'rar' ) {
-=======
-		$image_size = @getimagesize(get_site_url().'/?mdocs-img-preview='.$the_image_file);
-		if(get_option('mdocs-preview-type') == 'box' && get_option('mdocs-box-view-key') != '' && strtolower($the_mdoc['type']) != 'zip' && strtolower($the_mdoc['type']) != 'rar' && $image_size == false) {
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 			$boxview = new mdocs_box_view();
 			$thumbnail = true;
 		} else {
@@ -204,13 +195,7 @@ function mdocs_show_description($id) {
 		if($thumbnail) {
 			if(function_exists('imagecreatefromjpeg')) {
 				?>
-<<<<<<< HEAD
 				<img class="mdocs-thumbnail img-thumbnail img-responsive" src="<?php $boxview->getThumbnail($the_mdoc['box-view-id'], $the_mdoc); ?>" alt="<?php echo $the_mdoc['filename']; ?>" />
-=======
-				<div class="">
-					<img class="mdocs-thumbnail pull-left img-thumbnail img-responsive" src="<?php $boxview->getThumbnail($the_mdoc['box-view-id'], $the_mdoc); ?>" alt="<?php echo $the_mdoc['filename']; ?>" />
-				</div>
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 				<?php
 			}
 		} elseif($the_mdoc['type'] == 'pdf' && class_exists('imagick')) {
@@ -225,13 +210,7 @@ function mdocs_show_description($id) {
 			$thumbnail->setImageFormat('png');
 			$uri = "data:image/png;base64," . base64_encode($thumbnail);
 			?>
-<<<<<<< HEAD
 			<img class="mdocs-thumbnail img-thumbnail  img-responsive" src="<?php echo $uri; ?>" alt="<?php echo $the_mdoc['filename']; ?>" />
-=======
-			<div class="" >
-				<img class="mdocs-thumbnail pull-left img-thumbnail  img-responsive" src="<?php echo $uri; ?>" alt="<?php echo $the_mdoc['filename']; ?>" />
-			</div>
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 			<?php
 		} elseif( $image_size != false) {
 			$thumbnail_size = 256;
@@ -285,23 +264,13 @@ function mdocs_show_description($id) {
 				$png = ob_get_clean();
 				$uri = "data:image/png;base64," . base64_encode($png);
 				?>
-<<<<<<< HEAD
 				<img class="mdocs-thumbnail img-thumbnail  img-responsive" src="<?php echo $uri; ?>" alt="<?php echo $the_mdoc['filename']; ?>" />
-=======
-				<div class="">
-					<img class="mdocs-thumbnail pull-left img-thumbnail  img-responsive" src="<?php echo $uri; ?>" alt="<?php echo $the_mdoc['filename']; ?>" />
-				</div>
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 				<?php
 			}
 		}
 		echo $mdocs_desc; ?>
 		</div>
-<<<<<<< HEAD
 		<div class="clearfix"></div>
-=======
-		<div class=clearfix"></div>
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		<?php
 	} else {
 		?>
@@ -311,11 +280,7 @@ function mdocs_show_description($id) {
 }
 // VERSIONS
 function mdocs_show_versions($id=null) {
-<<<<<<< HEAD
 	if($id == null && isset($_POST['mdocs-id'])) $the_mdoc = get_the_mdoc_by($_POST['mdocs-id'], 'id');
-=======
-	if($id == null) $the_mdoc = get_the_mdoc_by($_POST['mdocs-id'], 'id');
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 	else $the_mdoc = get_the_mdoc_by($id, 'parent');
 	if(mdocs_check_file_rights($the_mdoc)) {
 		$date_format = get_option('mdocs-date-format');
@@ -323,13 +288,7 @@ function mdocs_show_versions($id=null) {
 		$upload_dir = wp_upload_dir();
 		$archive_download = false;
 		$download_link = '';
-<<<<<<< HEAD
 		$the_mdoc_permalink = htmlspecialchars(get_permalink((int)$the_mdoc['parent']));
-=======
-		$the_mdoc_permalink = htmlspecialchars(get_permalink($the_mdoc['parent']));
-		
-		
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		if(mdocs_check_file_rights($the_mdoc) == false && is_user_logged_in()) {
 			$download_link = '<span class="text-danger"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.__('Access Denied','memphis-documents-library').'</span>';
 			$archive_download = false;
@@ -339,11 +298,7 @@ function mdocs_show_versions($id=null) {
 			$archive_download = false;
 			
 		} elseif($the_mdoc['non_members'] == 'on' || is_user_logged_in() ) {
-<<<<<<< HEAD
 			$download_link = '<a href="'.site_url().'/?mdocs-file='.$the_mdoc['id'].'"><i class="fas fa-cloud-download-alt" aria-hidden="true"></i> '.__('Download','memphis-documents-library').'</a>';
-=======
-			$download_link = '<a href="'.site_url().'/?mdocs-file='.$the_mdoc['id'].'"><i class="fa fa-cloud-download" aria-hidden="true"></i> '.__('Download','memphis-documents-library').'</a>';
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 			$archive_download = true;	
 		} else {
 			$download_link = '<span class="text-danger"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.__('Access Denied','memphis-documents-library').'</span>';
@@ -361,15 +316,9 @@ function mdocs_show_versions($id=null) {
 			<tr>
 				
 				<?php
-<<<<<<< HEAD
 				if(get_option('mdocs-hide-name')) $name_string = $the_mdoc['filename'].'<br>';
 				elseif(get_option('mdocs-hide-filename')) $name_string = str_replace('\\','',$the_mdoc['name']).'<br>';
 				else $name_string = str_replace('\\','',$the_mdoc['name']).' - <small class="text-muted">'.$the_mdoc['filename'].'</small><br>';
-=======
-				if(get_option('mdocs-hide-name')) $name_string = $new_or_updated.$file_status.$post_status.mdocs_get_file_type_icon($the_mdoc).' '.$the_mdoc['filename'].'<br>'.$scheduled;
-				elseif(get_option('mdocs-hide-filename')) $name_string = $new_or_updated.$file_status.$post_status.mdocs_get_file_type_icon($the_mdoc).' '.str_replace('\\','',$the_mdoc['name']).'<br>'.$scheduled;
-				else $name_string = $new_or_updated.$file_status.$post_status.mdocs_get_file_type_icon($the_mdoc).' '.str_replace('\\','',$the_mdoc['name']).' - <small class="text-muted">'.$the_mdoc['filename'].'</small><br>'.$scheduled;
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 				?>
 				
 				
@@ -394,7 +343,6 @@ function mdocs_show_versions($id=null) {
 					$archive_date = date($date_format, filemtime($upload_dir['basedir'].'/mdocs/'.$archive));
 					?>
 					<tr>
-<<<<<<< HEAD
 						<td class="mdocs-orange"><?php
 						if(get_option('mdocs-hide-name')) $name_string = $file;
 						elseif(get_option('mdocs-hide-filename')) $the_mdoc['name'];
@@ -407,13 +355,11 @@ function mdocs_show_versions($id=null) {
 						<td class="mdocs-red"><?php echo $archive_date; ?></td>
 						<?php if($archive_download) { ?>
 						<td><a href="<?php echo site_url().'/?mdocs-version='.$archive.'&mdocs-file='.$the_mdoc['id'].'&mdocs-url=false'; ?>"><i class="fas fa-cloud-download-alt" aria-hidden="true"></i> <?php _e('Download','memphis-documents-library'); ?></a></td>
-=======
 						<td class="mdocs-orange"><?php echo $the_mdoc['name'].' -  <small class="text-muted"><i>'.$file.'</i></small>'; ?></td>
 						<td class="mdocs-blue"><?php echo $version; ?></td>
 						<td class="mdocs-red"><?php echo $archive_date; ?></td>
 						<?php if($archive_download) { ?>
 						<td><a href="<?php echo site_url().'/?mdocs-version='.$archive.'&mdocs-file='.$the_mdoc['id'].'&mdocs-url=false'; ?>"><i class="fa fa-cloud-download" aria-hidden="true"></i> <?php _e('Download','memphis-documents-library'); ?></a></td>
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 						<?php
 						} else { ?>
 						<td><?php echo $download_link; ?></a></td>

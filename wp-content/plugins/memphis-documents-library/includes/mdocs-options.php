@@ -52,7 +52,6 @@ function mdocs_init_settings() {
 	add_option('mdocs-show-versions', true);
 	// ROLES AND PERMISSIONS
 	register_setting('mdocs-global-settings', 'mdocs-caps');
-<<<<<<< HEAD
 	add_option('mdocs-caps', array());
 	
 	// INITIALIZATION OF DOCUMENTS PAGE
@@ -60,7 +59,6 @@ function mdocs_init_settings() {
 	add_option('mdocs-box-show-print-and-download', false);
 	register_setting('mdocs-global-settings', 'mdocs-hide-widget-numbers');
 	add_option('mdocs-hide-widget-numbers', true);
-=======
 	add_option('mdocs-caps', array(
 		'manage-settings' => array('title' =>'Manage Settings', 'roles' => array(), 'caps' => array('mdocs_manage_settings')),
 		'allow-upload' => array('title' => 'Allow to Upload', 'roles' => array(), 'caps' => array('mdocs_alllow_upload')),
@@ -68,8 +66,6 @@ function mdocs_init_settings() {
 	));
 	
 	// INITIALIZATION OF DOCUMENTS PAGE
-	
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 	register_setting('mdocs-global-settings', 'mdocs-show-share');
 	add_option('mdocs-show-share', true);
 	register_setting('mdocs-global-settings', 'mdocs-show-social');
@@ -83,7 +79,6 @@ function mdocs_init_settings() {
 	register_setting('mdocs-global-settings', 'mdocs-download-text-color-hover');
 	add_option('mdocs-download-text-color-hover', '#ffffff');
 	register_setting('mdocs-global-settings', 'mdocs-navbar-bgcolor');
-<<<<<<< HEAD
 	add_option('mdocs-navbar-bgcolor', '#337ab7');
 	register_setting('mdocs-global-settings', 'mdocs-navbar-bordercolor');
 	add_option('mdocs-navbar-bordercolor', '#337ab7');
@@ -91,7 +86,6 @@ function mdocs_init_settings() {
 	add_option('mdocs-navbar-text-color-normal', '#ffffff');
 	register_setting('mdocs-global-settings', 'mdocs-navbar-text-color-hover');
 	add_option('mdocs-navbar-text-color-hover', '#f7f7f7');
-=======
 	add_option('mdocs-navbar-bgcolor', '#f8f8f8');
 	register_setting('mdocs-global-settings', 'mdocs-navbar-bordercolor');
 	add_option('mdocs-navbar-bordercolor', '#c4c4c4');
@@ -99,7 +93,6 @@ function mdocs_init_settings() {
 	add_option('mdocs-navbar-text-color-normal', '#777777');
 	register_setting('mdocs-global-settings', 'mdocs-navbar-text-color-hover');
 	add_option('mdocs-navbar-text-color-hover', '#333333');
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 	register_setting('mdocs-global-settings', 'mdocs-show-new-banners');
 	add_option('mdocs-show-new-banners', true);
 	register_setting('mdocs-global-settings', 'mdocs-hide-file-type-icon');
@@ -120,15 +113,10 @@ function mdocs_init_settings() {
 	add_option('mdocs-sort-style','desc');
 	register_setting('mdocs-global-settings', 'mdocs-htaccess');
 	add_option('mdocs-htaccess', "Deny from all\nOptions +Indexes");
-<<<<<<< HEAD
 	//register_setting('mdocs-global-settings', 'mdocs-view-private');
 	//add_option('mdocs-view-private', mdocs_init_view_private());
 	//register_setting('mdocs-global-settings', 'mdocs-default-caps');
 	//add_option('mdocs-default-caps',mdocs_default_caps());
-=======
-	register_setting('mdocs-global-settings', 'mdocs-view-private');
-	add_option('mdocs-view-private', mdocs_init_view_private());
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 	register_setting('mdocs-global-settings', 'mdocs-date-format');
 	add_option('mdocs-date-format', 'd-m-Y G:i');
 	register_setting('mdocs-global-settings', 'mdocs-allow-upload');
@@ -177,11 +165,8 @@ function mdocs_init_settings() {
 	add_option('mdocs-convert-to-latin', false);
 	register_setting('mdocs-global-settings', 'mdocs-hide-footer');
 	add_option('mdocs-hide-footer', false);
-<<<<<<< HEAD
 	register_setting('mdocs-global-settings', 'mdocs-hide-widget-column-titles');
 	add_option('mdocs-hide-widget-column-titles', false);
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 	// FILE HIGHLIGHT COLOURS
 	register_setting('mdocs-global-settings', 'mdocs-file-highlight-color-new-normal');
 	add_option('mdocs-file-highlight-color-new-normal', '#dff0d8');

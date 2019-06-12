@@ -6,13 +6,8 @@ function mdocs_localization() {
 	$loaded = load_plugin_textdomain('mdocs', false, 'memphis-documents-library/languages/' );
 }
 //PASS VARIABLES TO JAVASCRIPT
-<<<<<<< HEAD
 function mdocs_js_handle($script='') {
 	$mdocs_localization = array(
-=======
-function mdocs_js_handle($script) {
-	wp_localize_script( $script, 'mdocs_js', array(
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		'version_file' => __("You are about to delete this file.  Once deleted you will lose this file!\n\n'Cancel' to stop, 'OK' to delete.",'memphis-documents-library'),
 		'version_delete' => __("You are about to delete this version.  Once deleted you will lose this version of the file!\n\n'Cancel' to stop, 'OK' to delete.",'memphis-documents-library'),
 		'category_delete' => __("You are about to delete this folder.  Any file in this folder will be lost!\n\n'Cancel' to stop, 'OK' to delete.",'memphis-documents-library'),
@@ -42,29 +37,22 @@ function mdocs_js_handle($script) {
 		'mdocs_debug' => MDOCS_DEV,
 		'mdocs_debug_text' => __('MDOCS DEVELOPMENT VERSION', 'memphis-documents-library').'<br>'.__('[ ALL ERRORS ARE BEING REPORTED ]', 'memphis-documents-library'),
 		'mdocs_ajax_nonce' => wp_create_nonce('mdocs-ajax-nonce'),
-<<<<<<< HEAD
 		'mdocs_is_admin' => is_admin(),
 		'add_folder' => __('Add mDocs Folder','memphis-documents-library'),
 		'add_file' => __('Add mDocs File','memphis-documents-library'),
 	);
 	if($script != '') wp_localize_script( $script, 'mdocs_js', $mdocs_localization);
 	else return $mdocs_localization;
-=======
-	));
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 }
 // PROCESS AJAX REQUESTS
 function mdocs_ajax_processing() {
 	if(check_ajax_referer( 'mdocs-ajax-nonce', '_mdocs_ajax_nonce',false)) {
 		if(isset($_POST['type']) && $_POST['type'] != 'batch-edit-save' && $_POST['type'] != 'batch-move-save' && $_POST['type'] != 'batch-delete-save') $_POST = mdocs_sanitize_array($_POST);
 		switch($_POST['type']) {
-<<<<<<< HEAD
 			/*case 'upload-document':
 				if(current_user_can('mdocs_allow_upload') || current_user_can('mdocs_allow_upload_frontend')) mdocs_file_upload();
 				else die(__('You are unauthorized to do this.', 'memphis-documents-library'));
 				break;*/
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 			case 'update-date':
 				if(current_user_can('mdocs_allow_upload')) echo json_encode(mdocs_format_unix_epoch());
 				else die(__('You are unauthorized to do this.', 'memphis-documents-library'));
@@ -152,20 +140,12 @@ function mdocs_ajax_processing() {
 			case 'mdocs-export':
 				if(current_user_can('mdocs_manage_options')) {
 					mdocs_export_zip();
-<<<<<<< HEAD
 					//mdocs_download_export_file($_POST['zip-file']);
-=======
-					mdocs_download_export_file($_POST['zip-file']);
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 				} else die(__('You are unauthorized to do this.', 'memphis-documents-library'));
 				break;
 			case 'mdocs-export-cleanup':
 				if(current_user_can('mdocs_manage_options')) {
-<<<<<<< HEAD
 					//if($_POST['mdocs-export-donot-delete'] == '') unlink(sys_get_temp_dir().'/mdocs-export.zip');
-=======
-					if($_POST['mdocs-export-donot-delete'] == '') unlink(sys_get_temp_dir().'/mdocs-export.zip');
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 				} else die(__('You are unauthorized to do this.', 'memphis-documents-library'));
 				break;
 			case 'mdocs-cat-index':
@@ -202,7 +182,6 @@ function mdocs_ajax_processing() {
 				if(current_user_can('mdocs_batch_delete')) mdocs_batch_delete_save();
 				else die(__('You are unauthorized to do this.', 'memphis-documents-library'));
 				break;
-<<<<<<< HEAD
 			case 'delete-file':
 				$the_mdoc = mdocs_get_file_by(mdocs_sanitize_string($_REQUEST['mdocs-id']), 'id');
 				if(mdocs_check_file_rights($the_mdoc)) mdocs_delete_file();
@@ -227,8 +206,6 @@ function mdocs_ajax_processing() {
 			case 'refresh-table':
 				mdocs_the_list();
 				break;
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		}
 	} else {
 		wp_die(__("\n\nmDocs Error: Memphis has terminated due to a faulty nonce check.  This check is needed to deter Cross-site scripting security vulnerabilities.\n\n", 'memphis-documents-library'));
@@ -253,10 +230,7 @@ function mdocs_local($text) {
 		'manage-options' => __('Manage Options','memphis-documents-library'),
 		'allow-upload' => __('Allow to Upload','memphis-documents-library'),
 		'view-private' => __('View Private Posts and Pages','memphis-documents-library'),
-<<<<<<< HEAD
 		'name' => __('Name', 'memphis-documents-library'),
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		'description' => __('Description','memphis-documents-library'),
 		'downloads' => __('Downloads','memphis-documents-library'),
 		'download' => __('Download','memphis-documents-library'),
@@ -266,23 +240,15 @@ function mdocs_local($text) {
 		'last-modified' => __('Last Modified','memphis-documents-library'),
 		'rating' => __('Rating','memphis-documents-library'),
 		'file-size' => __('File Size','memphis-documents-library'),
-<<<<<<< HEAD
 		'file-type' => __('File Type','memphis-documents-library'),
 		//'thumbnail' => __('Thumbnail', 'memphis-documents-library'),
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		'batch-edit' => __('Allow to Batch Edit', 'memphis-documents-library'),
 		'batch-move' => __('Allow to Batch Move', 'memphis-documents-library'),
 		'batch-delete' => __('Allow to Batch Delete', 'memphis-documents-library'),
 		'allow-upload-frontend' => __('Allow to Upload Frontend', 'memphis-documents-library'),
 	);
-<<<<<<< HEAD
 	$key = array_search(__($text, 'memphis-documents-library'), $local);
 	if($key == false) echo $text;
-=======
-	$key = array_search($text, $local);
-	if($key == false) echo _('Text not found.');
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 	else echo $local[$key];
 }
 ?>

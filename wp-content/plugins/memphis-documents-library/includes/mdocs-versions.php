@@ -1,6 +1,5 @@
 <?php
 function mdocs_versions() {
-<<<<<<< HEAD
 	$the_mdoc = mdocs_get_file_by($_REQUEST['mdocs-id'], 'id');
 	$upload_dir = wp_upload_dir();
 	$date_format = get_option('mdocs-date-format');
@@ -79,7 +78,6 @@ function mdocs_versions() {
 		<!--<button id="mdocs-manage-version-close-btn" type="button" class="btn btn-default " data-dismiss="modal" data-folder="<?php echo $_REQUEST['folder']; ?>" data-sort="<?php echo $_REQUEST['sort']; ?>" data-sort-type="<?php echo $_REQUEST['sort-type']; ?>" data-is-dashboard="<?php echo $_REQUEST['is-dashboard']; ?>" ><?php _e('Close','memphis-documents-library'); ?></button>-->
 		<button type="button" class="btn btn-default" data-dismiss="modal"><?php _e('Close','memphis-documents-library'); ?></button>
 	</form>
-=======
 	$cats = get_option('mdocs-cats');
 	$mdocs = get_option('mdocs-list');
 	$mdocs = mdocs_array_sort();
@@ -168,13 +166,11 @@ function mdocs_versions() {
 		</div>
 	</div>
 </div>
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 <?php
 	}
 }
 
 function mdocs_delete_version() {
-<<<<<<< HEAD
 	$mdocs = mdocs_array_sort();
 	$the_mdoc = mdocs_get_file_by($_POST['mdocs-id'], 'id');
 	$the_mdocs_index = mdocs_get_file_index_by($_POST['mdocs-id'], 'id');
@@ -254,8 +250,6 @@ function mdocs_update_to_revision() {
 		<div class="alert alert-info text-center"><?php _e('You are already at the most recent version of this document.', 'memphis-documents-library'); ?></div>
 		<?php
 	}
-	
-=======
 	if ($_GET['mdocs-nonce'] == MDOCS_NONCE || get_option('mdocs-disable-sessions') == true) {
 		$index = mdocs_sanitize_string($_GET['mdocs-index']);
 		$version_file = mdocs_sanitize_string($_GET['version-file']);
@@ -333,7 +327,6 @@ function mdocs_update_revision() {
 		
 		} else mdocs_errors('You are already at the most recent version of this document.');
 	} else mdocs_errors(MDOCS_ERROR_4,'error');
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 }
 
 ?>

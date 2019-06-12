@@ -1,29 +1,20 @@
 <?php
 function mdocs_dashboard_menu() {
-<<<<<<< HEAD
+
 	add_menu_page( __('Memphis Documents Library','memphis-documents-library'), __('Memphis Docs','memphis-documents-library'), 'mdocs_allow_upload', 'memphis-documents.php', 'mdocs_dashboard', MDOCS_URL.'/assets/imgs/kon.ico'  );
-=======
-	add_menu_page( __('Memphis Documents Library','memphis-documents-library'), __('Memphis Docs','memphis-documents-library'), 'mdocs_allow_upload', 'memphis-documents.php', 'mdocs_dashboard', MDOC_URL.'/assets/imgs/kon.ico'  );
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 	if(get_option('mdocs-disable-bootstrap-admin')) add_submenu_page( 'memphis-documents.php', __('Settings', 'memphis-documents-library'), __('Settings', 'memphis-documents-library'), 'administrator', 'memphis-documents.php&mdocs-cat=settings', 'mdocs_settings' );
 }
 
 function mdocs_dashboard() {
 	if(isset($_FILES['mdocs']) && $_FILES['mdocs']['name'] != '' && $_POST['mdocs-type'] == 'mdocs-add') mdocs_file_upload();
 	elseif(isset($_FILES['mdocs']) && $_POST['mdocs-type'] == 'mdocs-update') mdocs_file_upload();
-<<<<<<< HEAD
-=======
 	elseif(isset($_GET['action']) && $_GET['action'] == 'delete-doc' && !isset($_POST['mdocs-type'])) mdocs_delete();
 	elseif(isset($_GET['action']) && $_GET['action'] == 'delete-version') mdocs_delete_version();
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 	elseif(isset($_POST['action']) && $_POST['action'] == 'mdocs-import') {
 		if(mdocs_file_upload_max_size() < $_FILES['mdocs-import-file']['size']) mdocs_errors(MDOCS_ERROR_7, 'error');
 		else mdocs_import_zip();
 	} elseif(isset($_POST['action']) && $_POST['action'] == 'mdocs-update-revision') mdocs_update_revision();
-<<<<<<< HEAD
-=======
 	elseif(isset($_GET['action']) && $_GET['action'] == 'mdocs-versions') mdocs_versions();
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 	elseif(isset($_POST['action']) && $_POST['action'] == 'mdocs-update-cats') mdocs_update_cats();
 	mdocs_dashboard_view();
 }
@@ -31,18 +22,15 @@ function mdocs_dashboard() {
 function mdocs_dashboard_view() {
 	if(isset($_GET['mdocs-cat'])) $current_cat = mdocs_sanitize_string($_GET['mdocs-cat']);
 	else $current_cat = null;
-<<<<<<< HEAD
 	if(isset($_GET['mdocs-error-msg'])) mdocs_errors($_GET['mdocs-error-msg'],'error');
 	if($current_cat == 'import') mdocs_import($current_cat);
 	elseif($current_cat == 'export') mdocs_export($current_cat);
 	elseif($current_cat == 'cats') mdocs_edit_cats($current_cat);
 	//elseif($current_cat == 'cats' && MDOCS_DEV) mdocs_folder_editor($current_cat);
-=======
 	if($current_cat == 'import') mdocs_import($current_cat);
 	elseif($current_cat == 'export') mdocs_export($current_cat);
 	elseif($current_cat == 'cats' && MDOCS_DEV == false) mdocs_edit_cats($current_cat);
 	elseif($current_cat == 'cats' && MDOCS_DEV) mdocs_folder_editor($current_cat);
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 	elseif($current_cat == 'settings') mdocs_settings();
 	elseif($current_cat == 'batch') mdocs_batch_upload($current_cat);
 	elseif($current_cat == 'short-codes') mdocs_shortcodes($current_cat);
@@ -54,7 +42,6 @@ function mdocs_dashboard_view() {
 	else echo mdocs_the_list();
 }
 
-<<<<<<< HEAD
 function mdocs_add_update_ajax($edit_type='Add Document') {
 	if(isset($_REQUEST['mdocs-id'])) $the_mdoc = mdocs_get_file_by($_REQUEST['mdocs-id'], 'id');
 	else $the_mdoc = null;
@@ -87,7 +74,6 @@ function mdocs_add_update_ajax($edit_type='Add Document') {
 	} else {
 		$error['error'] = __('The permission of this file have changed and you no longer have acces to it, please contact the ower of the file.', 'memphis-documents-library')."\n\r";
 		$error['error'] .= __('[ File Owner ]', 'memphis-documents-library').' => '.$the_mdoc['owner']."\n\r";
-=======
 function mdocs_delete() {
 	if ( $_REQUEST['mdocs-nonce'] == MDOCS_NONCE || get_option('mdocs-disable-sessions') == true) {
 		$mdocs = get_option('mdocs-list');
@@ -155,7 +141,6 @@ function mdocs_add_update_ajax($edit_type='Add Document') {
 		$error['error'] = __('Index value not found, something has gone wrong.', 'memphis-documents-library')."\n\r";
 		$error['error'] .= __('[ Index Value ]', 'memphis-documents-library').' => '.$mdocs_index."\n\r";
 		$error['error'] .= __('[ Edit Type ]', 'memphis-documents-library').' => '.$edit_type;
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		echo json_encode($error);
 	}
 }

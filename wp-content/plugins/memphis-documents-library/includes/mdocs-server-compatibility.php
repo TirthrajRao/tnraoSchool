@@ -70,10 +70,7 @@ function mdocs_server_compatibility() {
 		$php_curl_info = __('Ajax functionality will not work, problems with displaying descriptions and previews will occur.', 'memphis-documents-library').'<br><a href="http://php.net/manual/en/curl.installation.php" target="_blank">http://php.net/manual/en/curl.installation.php</a>';
 	}
 	// SESSIONS ENABLED
-<<<<<<< HEAD
 	/*
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 	if(mdocs_is_sessions_enabled()) {
 		$session_result = $success;
 		$session_info = '';
@@ -81,10 +78,7 @@ function mdocs_server_compatibility() {
 		$session_result = $fail;
 		$session_info = __('Sessions need to be enable for Memphis Documents Library to function properly.','memphis-documents-library');
 	}
-<<<<<<< HEAD
 	*/
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 	// HAS SYSTEM TEMP DIRECTORY
 	if(sys_get_temp_dir() != null) {
 		$temp_dir_result = $success;
@@ -117,20 +111,14 @@ function mdocs_server_compatibility() {
 					<td><?php echo $upload_dir_read_write_info; ?></td>
 					<td></td>
 				</tr>
-<<<<<<< HEAD
 				<!--
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 				<tr>
 					<td><?php _e('Sessions Enabled', 'memphis-documents-library');?></td>
 					<td class="text-center"><?php echo $session_result; ?></td>
 					<td><?php echo $session_info; ?></td>
 					<td></td>
 				</tr>
-<<<<<<< HEAD
 				-->
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 				<tr>
 					<td><?php _e('PHP Image Processing and GD', 'memphis-documents-library');?></td>
 					<td class="text-center"><?php echo $php_gd_result; ?></td>

@@ -1,5 +1,5 @@
 <?php
-<<<<<<< HEAD
+
 function mdocs_box_api_call($url,$header=array(), $body=array(), $type='GET') {
 	$response = array();
 	$headers = array( 'Authorization' => 'Bearer ' . get_option('mdocs-box-view-key'));
@@ -14,8 +14,6 @@ function mdocs_box_api_call($url,$header=array(), $body=array(), $type='GET') {
 	$response['body'] = wp_remote_retrieve_body( $response['raw'] );
 	return $response;
 }
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 class mdocs_box_view {
 	public function displayThumbnail($thumbnail) {
 		if(function_exists('imagecreatefromjpeg')) {
@@ -35,7 +33,6 @@ class mdocs_box_view {
 	}
 	public function getThumbnail($doc_id, $the_mdoc) {
 		//GET THE THUMBNAIL URL
-<<<<<<< HEAD
 		$response = mdocs_box_api_call('https://api.box.com/2.0/files/'.$doc_id.'?fields=representations',array('x-rep-hints' => '[jpg?dimensions=160x160]'));
 		if($response['code'] == 200) {
 			$data = json_decode($response['body'],true);
@@ -97,7 +94,6 @@ class mdocs_box_view {
 		} else {
 			return array('type' => 'error', 'status' => $response['code'], 'message' => $response['msg']);
 		}
-=======
 		$header = array(
 			'Authorization: Bearer '.get_option('mdocs-box-view-key'),
 			'x-rep-hints: [jpg?dimensions=320x320]',
@@ -185,7 +181,6 @@ class mdocs_box_view {
 				return $data;
 			} else return $data;
 		} return array('type' => 'error', 'status' => '500', 'message' => 'This file type is not supported yet.');
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 	}
 	public function uploadFile($the_file, $thumbnail_size='256x256', $try=0) {
 		$upload_dir = wp_upload_dir();
@@ -212,10 +207,8 @@ class mdocs_box_view {
 		return $data;
 	}
 	public function deleteFile($the_file) {
-<<<<<<< HEAD
 		mdocs_box_api_call('https://api.box.com/2.0/files/'.$the_file['box-view-id'], array(), array(), 'DELETE');
 		mdocs_box_api_call('https://api.box.com/2.0/files/'.$the_file['box-view-id'].'/trash', array(), array(), 'DELETE');
-=======
 		// GET ETAG
 		$header = array(
 			'Authorization: Bearer '.get_option('mdocs-box-view-key'),
@@ -255,7 +248,6 @@ class mdocs_box_view {
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 		$data = curl_exec($ch);
 		curl_close($ch);
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 	}
 }
 ?>

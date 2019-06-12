@@ -2,10 +2,8 @@
 function mdocs_get_inline_css() {
 	$num_show = 0;
 	$show_array = get_option('mdocs-displayed-file-info');
-<<<<<<< HEAD
 	foreach($show_array as $value) if(isset($value['show']) && $value['show'] == true) $num_show++;
 	$mdocs_font_size = get_option('mdocs-font-size');
-=======
 	$sa =  mdocs_get_table_atts();
 	if($sa['show-downloads']['show']) $num_show++;
 	if($sa['show-author']['show']) $num_show++;
@@ -20,7 +18,6 @@ function mdocs_get_inline_css() {
 	if($num_show==2) $title_width = '65%';
 	if($num_show==1) $title_width = '75%';
 	if($num_show==0) $title_width = '100%';
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 	$download_button_color = get_option('mdocs-download-text-color-normal');
 	$download_button_bg = get_option('mdocs-download-color-normal'); 
 	$download_button_hover_color = get_option('mdocs-download-text-color-hover');
@@ -39,7 +36,6 @@ function mdocs_get_inline_css() {
 	else $mdocs_post_show_title = '';
 	if(get_option('mdocs-hide-entry-div') == true) $mdocs_hide_entry_div = 'display: none !important;';
 	else $mdocs_hide_entry_div = '';
-<<<<<<< HEAD
 	$document_list_style = '';
 	foreach(get_option('mdocs-displayed-file-info') as $index => $file_info) {
 		$document_list_style .= "#mdocs-list-table .mdocs-".$file_info['slug']." { width: ".$file_info['width']."%; }\n\t\t";
@@ -48,13 +44,11 @@ function mdocs_get_inline_css() {
 		/*body { background: inherit; } CAN'T REMEMBER WHY I PUT THIS IN?*/
 		dd, li { margin: 0; }
 		$document_list_style.mdocs-download-btn-config:hover { background: $download_button_hover_bg; color: $download_button_hover_color; }
-=======
 	$set_inline_style = "
 		/*body { background: inherit; } CAN'T REMEMBER WHY I PUT THIS IN?*/
 		dd, li { margin: 0; }
 		.mdocs-list-table #title { width: $title_width !important }
 		.mdocs-download-btn-config:hover { background: $download_button_hover_bg; color: $download_button_hover_color; }
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		.mdocs-download-btn-config { color: $download_button_color; background: $download_button_bg ; }
 		.mdocs-download-btn, .mdocs-download-btn:active { border: solid 1px $download_button_color !important; color: $download_button_color !important; background: $download_button_bg !important;  }
 		.mdocs-download-btn:hover { background: $download_button_hover_bg !important; color: $download_button_hover_color !important;}
@@ -109,11 +103,8 @@ function mdocs_get_inline_css() {
 		.table-hover > tbody > tr.mdocs-info:hover > th {
 		  background-color: $highlight_color_updated_hover;
 		}
-<<<<<<< HEAD
 		.mdocs table td,.mdocs table th { border: none; }
 		.mdocs a { text-decoration: none !important; }
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 	";
 	//	TWENTY SIXTEEN FIX
 	if(wp_get_theme() == "Twenty Sixteen") $set_inline_style .= "html { font-size: inherit !important; }";

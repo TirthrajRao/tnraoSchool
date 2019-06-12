@@ -6,11 +6,7 @@ function mdocs_ratings() {
 		$sa =  mdocs_get_table_atts();
 		foreach($mdocs as $index => $the_mdoc) {
 			if(intval($the_mdoc['id']) == intval($_POST['mdocs_file_id']) && $found == false) {
-<<<<<<< HEAD
 				if($sa['show-rating']['show']) {
-=======
-				if($sa['show-ratings']['show']) {
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 					$the_rating = mdocs_get_rating($the_mdoc);
 					if($the_rating['your_rating'] == 0) $text = __("Rate Me!");
 					else $text = __("Your Rating");
@@ -19,15 +15,9 @@ function mdocs_ratings() {
 					echo '<div class="mdocs-ratings-stars" data-my-rating="'.$the_rating['your_rating'].'">';
 					echo '<p>'.$text,'</p>';
 					for($i=1;$i<=5;$i++) {
-<<<<<<< HEAD
 						if($the_rating['average'] >= $i) echo '<i class="fas fa-star fa-5x mdocs-gold  mdocs-my-rating" id="'.$i.'" aria-hidden="true"></i>';
 						elseif(ceil($the_rating['average']) == $i ) echo '<i class="fas fa-star-half-alt fa-5x mdocs-gold mdocs-my-rating" id="'.$i.'" aria-hidden="true"></i>';
 						else echo '<i class="far fa-star fa-5x mdocs-my-rating" id="'.$i.'" aria-hidden="true"></i>';
-=======
-						if($the_rating['average'] >= $i) echo '<i class="fa fa-star fa-5x mdocs-gold  mdocs-my-rating" id="'.$i.'" aria-hidden="true"></i>';
-						elseif(ceil($the_rating['average']) == $i ) echo '<i class="fa fa-star-half-full fa-5x mdocs-gold mdocs-my-rating" id="'.$i.'" aria-hidden="true"></i>';
-						else echo '<i class="fa fa-star-o fa-5x mdocs-my-rating" id="'.$i.'" aria-hidden="true"></i>';
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 					}
 					echo '</div>';
 					echo '</div>';
@@ -73,14 +63,11 @@ function mdocs_set_rating($the_id) {
 	$mdocs[$doc_index]['rating'] = floatval(number_format($avg/count($mdocs[$doc_index]['ratings']),1));
 	mdocs_save_list($mdocs);
 	$_POST['type'] = 'rating';
-<<<<<<< HEAD
 	
 	//$test = mdocs_get_file_by($_REQUEST['mdocs_file_id'],'id');
 	//var_dump($test);
 	//var_dump($_REQUEST);
 	//mdocs_the_list();
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 	//mdocs_ratings();
 	
 }

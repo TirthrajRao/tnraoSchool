@@ -20,10 +20,7 @@ function mdocs_find_lost_files() {
 }
 function find_lost_files() {
 	global $found_cat;
-<<<<<<< HEAD
 	$found_at_least_one = false;
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 	$docs = get_option('mdocs-list');
 	$cats = get_option('mdocs-cats');
 	echo '<form action="#" method="POST" id="mdocs-find-lost-files-save">';

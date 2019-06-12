@@ -166,11 +166,7 @@ function mdocs_import_zip() {
 						if(file_exists($zip_result['dir'].'/'.$value['filename'])) {
 							$upload_result = move_uploaded_file($zip_result['dir'].'/'.$value['filename'], $upload_dir['basedir'].'/mdocs/'.strtolower($value['filename']));
 							if($upload_result == false) $upload_result = @rename($zip_result['dir'].'/'.$value['filename'], $upload_dir['basedir'].'/mdocs/'.strtolower($value['filename']));
-<<<<<<< HEAD
 							//if($upload_result == false) var_dump($value['filename']);
-=======
-							if($upload_result == false) var_dump($value['filename']);
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 						} else $file_not_found = true;
 						
 						
@@ -181,11 +177,7 @@ function mdocs_import_zip() {
 									if(file_exists($zip_result['dir'].'/'.$archive)) {
 										$upload_result = move_uploaded_file($zip_result['dir'].'/'.$archive, $upload_dir['basedir'].'/mdocs/'.strtolower($archive));
 										if($upload_result == false) $upload_result = @rename($zip_result['dir'].'/'.$archive, $upload_dir['basedir'].'/mdocs/'.strtolower($archive));
-<<<<<<< HEAD
 										//if($upload_result == false) var_dump($archive);
-=======
-										if($upload_result == false) var_dump($archive);
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 									}
 								}
 							}
@@ -288,7 +280,6 @@ function mdocs_unzip($zip_file, $output_path) {
 		}
 		foreach(scandir($zip_result['dir']) as $index => $find_files) {
 			if($find_files !== '.' && $find_files != '..' && $find_files != '__MACOSX' && $find_files != '.DS_Store' && $find_files != '.htaccess' && $find_files != is_dir($zip_result['dir'].'/'.$find_files)) {
-<<<<<<< HEAD
 				if(get_option('mdocs-convert-to-latin')) {
 					if(!isset($zip_result['file'])) $zip_result['file'][0] = $zip_result['dir'].'/'.mdocs_filenames_to_latin($find_files);
 					else array_push($zip_result['file'], $zip_result['dir'].'/'.mdocs_filenames_to_latin($find_files));
@@ -299,12 +290,6 @@ function mdocs_unzip($zip_file, $output_path) {
 					rename($zip_result['dir'].'/'.$find_files, $zip_result['dir'].'/'.$find_files);
 				}
 				}
-=======
-				if(!isset($zip_result['file'])) $zip_result['file'][0] = $zip_result['dir'].'/'.$find_files;
-				else array_push($zip_result['file'], $zip_result['dir'].'/'.$find_files);
-			}
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
-			
 		}
 		return $zip_result;
 	} else {

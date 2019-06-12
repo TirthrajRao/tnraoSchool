@@ -31,7 +31,6 @@ function mdocs_shortcodes($current_cat) {
 				</tr>
 				<tr>
 					<td>[mdocs cat="<?php _e('The Category Name','memphis-documents-library');?>"]</td>
-<<<<<<< HEAD
 					<td><?php _e('This still works but you are better off using the "Add mDocs Folder" button, found at the top of the page editor.', 'memphis-documents-library'); echo '<br><br>'; _e('Adds files from  a specific folder of the Memphis Documents Library on any page, post or widget.','memphis-documents-library');?></td>
 				</tr>
 				<tr>
@@ -41,7 +40,6 @@ function mdocs_shortcodes($current_cat) {
 				<tr>
 					<td>[mdocs single-file="<?php _e('Enter the file name.','memphis-documents-library'); ?>"]</td>
 					<td><?php _e('This still works but you are better off using the "Add mDocs File" button, found at the top of the page editor.', 'memphis-documents-library'); echo '<br><br>'; _e('Adds a single file to any post, page or widget.','memphis-documents-library');?></td>
-=======
 					<td><?php _e('Adds files from  a specific folder of the Memphis Documents Library on any page, post or widget.','memphis-documents-library');?></td>
 				</tr>
 				<tr>
@@ -55,7 +53,6 @@ function mdocs_shortcodes($current_cat) {
 				<tr>
 					<td>[mdocs header="<?php _e('This text will show up above the documents list.','memphis-documents-library'); ?>"]</td>
 					<td><?php _e('Adds a header to the Memphis Documents LIbrary on ay page, post or widget.','memphis-documents-library');?></td>
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 				</tr>
 				<tr>
 					<td>[mdocs_upload_btn]</td>
@@ -66,7 +63,6 @@ function mdocs_shortcodes($current_cat) {
 	</div>
 	<?php
 }
-<<<<<<< HEAD
 //add_action('media_buttons', 'mdocs_add_media_buttons', 15);
 add_action('admin_footer', 'mdocs_add_media_buttons', 15);
 function mdocs_add_media_buttons() {
@@ -193,6 +189,4 @@ var mdocs_js = {
 </script>
 <?php
 }
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 ?>

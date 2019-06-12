@@ -1,5 +1,4 @@
 <?php
-<<<<<<< HEAD
 function mdocs_run_patch() {
 	if(MDOCS_VERSION == '3.9.19' || MDOCS_VERSION == '3.9.20') {
 		// 3.9.19 patch 1
@@ -75,13 +74,10 @@ function mdocs_patches() {
 			update_option('mdocs-v3-9-9-patch-var-1', true);
 		}
 		*/
-=======
 function mdocs_patches() {
 	//PATCHES
 	if(!isset($_GET['restore-default'])) {
 		$patches = get_option('mdocs-patches');
-		
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		// 3.9.2 patch 1
 		register_setting('mdocs-patch-vars', 'mdocs-v3-9-2-patch-var-1');
 		add_option('mdocs-v3-9-2-patch-var-1',false);
@@ -111,7 +107,6 @@ function mdocs_patches() {
 			mdocs_update_cap('manage-options', 'Manage Options', null, array('mdocs_manage_options'));
 			mdocs_update_cap('allow-upload', 'Allow to Upload', null, array('mdocs_allow_upload'));
 			mdocs_update_cap('private-post-viewing', 'View Private Posts and Pages', null, array('read_private_posts','read_private_pages'));
-<<<<<<< HEAD
 			/*
 			mdocs_update_file_info('show-description', null, null, null, 'mdocs-none', 'mdocs-none');
 			mdocs_update_file_info('show-rating', null, null, null, 'mdocs-none', 'mdocs-black');
@@ -119,13 +114,11 @@ function mdocs_patches() {
 			mdocs_update_file_info('show-real-author', null, null, null, null, 'mdocs-black');
 			mdocs_update_file_info('show-file-size', null, null, null, null, 'mdocs-black');
 			*/
-=======
 			mdocs_update_file_info('show-description', null, null, null, 'mdocs-none', 'mdocs-none');
 			mdocs_update_file_info('show-ratings', null, null, null, 'mdocs-none', 'mdocs-black');
 			mdocs_update_file_info('show-download-btn', null, null, null, null, 'mdocs-black');
 			mdocs_update_file_info('show-real-author', null, null, null, null, 'mdocs-black');
 			mdocs_update_file_info('show-file-size', null, null, null, null, 'mdocs-black');
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 			update_option('mdocs-v3-8-7-patch-var-1', true);
 		}
 		// 3.8.6 patch 4
@@ -152,19 +145,13 @@ function mdocs_patches() {
 			}
 			update_option('mdocs-caps',$mdocs_caps);
 			mdocs_add_cap('manage-options', 'Manage Options', array(), array('mdocs_manage_options'));
-<<<<<<< HEAD
 			/*
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 			mdocs_update_file_info('show-description', null, null, null, 'fa fa-text', 'mdocs-black');
 			mdocs_update_file_info('show-ratings', null, null, null, 'fa fa-text', 'mdocs-black');
 			mdocs_update_file_info('show-download-btn', null, null, null, null, 'mdocs-black');
 			mdocs_update_file_info('show-real-author', null, null, null, 'fa fa-pencil', 'mdocs-black');
 			mdocs_update_file_info('show-file-size', null, null, null, null, 'mdocs-black');
-<<<<<<< HEAD
 			*/
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 			update_option('mdocs-v3-8-6-patch-var-4', true);
 		}
 		// 3.8.6 patch 1
@@ -188,7 +175,6 @@ function mdocs_patches() {
 			}
 			update_option('mdocs-caps', $mdocs_caps);
 			update_option('mdocs-v3-8-6-patch-var-3', true);
-<<<<<<< HEAD
 			//$role_object = get_role('administrator');
 			//$role_object->add_cap('mdocs_manage_settings');
 			//$role_object->add_cap('mdocs_allow_upload');
@@ -197,7 +183,6 @@ function mdocs_patches() {
 		// PATCHES
 		// 3.7.4 patch 1
 		/*
-=======
 			$role_object = get_role('administrator');
 			$role_object->add_cap('mdocs_manage_settings');
 			$role_object->add_cap('mdocs_allow_upload');
@@ -205,7 +190,6 @@ function mdocs_patches() {
 		}
 		// PATCHES
 		// 3.7.4 patch 1
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		register_setting('mdocs-patch-vars', 'mdocs-v3-7-4-patch-var-1');
 		add_option('mdocs-v3-7-4-patch-var-1',false);
 		if(get_option('mdocs-v3-7-4-patch-var-1') == false && is_array(get_option('mdocs-list'))) {
@@ -220,11 +204,7 @@ function mdocs_patches() {
 			$display_array['show-downloads'] = array(
 				'slug' =>  'downloads',
 				'text' =>  'Downloads',
-<<<<<<< HEAD
 				'icon' =>  'fas fa-cloud-download',
-=======
-				'icon' =>  'fa fa-cloud-download',
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 				'color' =>  'mdocs-orange',
 				'function' =>  'mdocs_display_downloads',
 				'show' =>  '1',
@@ -232,11 +212,7 @@ function mdocs_patches() {
 			$display_array['show-version'] = array(
 				'slug' =>  'version',
 				'text' =>  'Version',
-<<<<<<< HEAD
 				'icon' =>  'fa fa-history',
-=======
-				'icon' =>  'fa fa-power-off',
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 				'color' =>  'mdocs-blue',
 				'function' =>  'mdocs_display_version',
 				'show' =>  '1',
@@ -295,13 +271,9 @@ function mdocs_patches() {
 			update_option('mdocs-displayed-file-info', $show_options);
 			update_option('mdocs-v3-7-4-patch-var-1', true);
 		}
-<<<<<<< HEAD
 		*/
 		// 3.7.3 patch 1
 		/*
-=======
-		// 3.7.3 patch 1
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		register_setting('mdocs-patch-vars', 'mdocs-v3-7-3-patch-var-1');
 		add_option('mdocs-v3-7-3-patch-var-1',false);
 		if(get_option('mdocs-v3-7-3-patch-var-1') == false && is_array(get_option('mdocs-list'))) {
@@ -310,10 +282,7 @@ function mdocs_patches() {
 			update_option('mdocs-displayed-file-info', $show_options);
 			update_option('mdocs-v3-7-3-patch-var-1', true);
 		}
-<<<<<<< HEAD
 		*/
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		// PATCHES
 		// 3.7.1 patch 1
 		register_setting('mdocs-patch-vars', 'mdocs-v3-7-1-patch-var-1');
@@ -396,10 +365,7 @@ function mdocs_patches() {
 			update_option('mdocs-list', $mdocs, '' , 'no');
 			update_option('mdocs-v3-0-patch-var-2',true);
 		}
-<<<<<<< HEAD
 		/*
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		// 3.0 patch 1
 		//delete_option('mdocs-v3-0-patch-var-1');
 		//delete_option('mdocs-box-view-updated');
@@ -412,11 +378,7 @@ function mdocs_patches() {
 			function mdocs_v3_0_patch() {
 				$mdocs = get_option('mdocs-list');
 				//MEMPHIS DOCS
-<<<<<<< HEAD
 				wp_register_script( 'mdocs-script-patch', MDOCS_URL.'memphis-documents.js');
-=======
-				wp_register_script( 'mdocs-script-patch', MDOC_URL.'memphis-documents.js');
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 				wp_enqueue_script('mdocs-script-patch');
 				wp_register_style( 'mdocs-font-awesome2-style-patch', '//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css');
 				wp_enqueue_style( 'mdocs-font-awesome2-style-patch' );
@@ -435,10 +397,7 @@ function mdocs_patches() {
 			update_option('mdocs-v3-0-patch-var-1',true);
 			update_option('mdocs-box-view-updated',true);
 		}
-<<<<<<< HEAD
 		*/
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		// 2.6.6
 		register_setting('mdocs-patch-vars', 'mdocs-v2-6-6-patch-var-1');
 		add_action('mdocs-v2-6-6-patch-var-1',false);
@@ -448,22 +407,15 @@ function mdocs_patches() {
 			update_option('mdocs-v2-6-6-patch-var-1',true);
 		}
 		// 2.6.7
-<<<<<<< HEAD
 		/*
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		register_setting('mdocs-patch-vars', 'mdocs-v2-6-7-patch-var-1');
 		add_action('mdocs-v2-6-7-patch-var-1',false);
 		if(get_option('mdocs-v2-6-7-patch-var-1') == false && is_array(get_option('mdocs-list'))) {
 			$mdocs_cat = get_category_by_slug('mdocs-media');
 			wp_delete_category($mdocs_cat->cat_ID);
 			update_option('mdocs-v2-6-7-patch-var-1',true);
-<<<<<<< HEAD
 		}
 		*/
-=======
-		} 
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		// 2.5
 		register_setting('mdocs-patch-vars', 'mdocs-v2-5-patch-var-1');
 		add_action('mdocs-v2-5-patch-var-1',false);

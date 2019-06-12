@@ -2,7 +2,6 @@
 function mdocs_show_file_info_templates() {
 	// TABLE SHOW OPTIONS
 	register_setting('mdocs-global-settings', 'mdocs-displayed-file-info');
-<<<<<<< HEAD
 	add_option('mdocs-displayed-file-info', array());
 	// DELETE ALL FILE INFO COLUMNS
 	/*
@@ -208,7 +207,6 @@ function mdocs_delete_file_info($key='') {
 	$file_info = get_option('mdocs-displayed-file-info');
 	unset($file_info[$key]);
 	update_option('mdocs-displayed-file-info', $file_info);
-=======
 	add_option('mdocs-displayed-file-info',array(
 		'show-description' => array('show' => false, 'slug' => 'desc', 'text' =>  __('Description', 'memphis-documents-library'), 'icon' => '', 'color' => '', 'function' => 'mdocs_display_description'),
 		'show-downloads' => array('show' => true, 'slug' => 'downloads', 'text' =>  __('Downloads', 'memphis-documents-library'), 'icon' => 'fa fa-cloud-download', 'color' => 'mdocs-orange', 'function' => 'mdocs_display_downloads'),
@@ -255,20 +253,16 @@ function mdocs_delete_file_info($slug='') {
 		update_option('mdocs-displayed-file-info', $show_options);
 		delete_option('mdocs-file-info-'.md5($slug));
 	}
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 }
 function mdocs_dispaly_default($the_mdoc) {
 	_e('No function found.', 'memphis-documents-library');
 }
-<<<<<<< HEAD
 function mdocs_display_name($the_mdoc) {
 
 }
 function mdocs_display_file_type($the_mdoc) {
 	echo mdocs_get_file_type_icon($the_mdoc,true,true);
 }
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 function mdocs_display_downloads($the_mdoc) {
 	echo $the_mdoc['downloads'].' <small>'.__('downloads','memphis-documents-library').'</small>';
 }
@@ -287,15 +281,9 @@ function mdocs_display_updated($the_mdoc) {
 function mdocs_display_rating($the_mdoc) {
 	$the_rating = mdocs_get_rating($the_mdoc);
 	for($i=1;$i<=5;$i++) {
-<<<<<<< HEAD
 		if($the_rating['average'] >= $i) echo '<i class="fas fa-star fa-xs mdocs-gold" id="'.$i.'" aria-hidden="true"></i>';
 		elseif(ceil($the_rating['average']) == $i ) echo '<i class="fas fa-star-half-alt fa-xs mdocs-gold" id="'.$i.'" aria-hidden="true"></i>';
 		else echo '<i class="far fa-star fa-xs" id="'.$i.'" aria-hidden="true"></i>';
-=======
-		if($the_rating['average'] >= $i) echo '<i class="fa fa-star mdocs-gold" id="'.$i.'" aria-hidden="true"></i>';
-		elseif(ceil($the_rating['average']) == $i ) echo '<i class="fa fa-star-half-full mdocs-gold" id="'.$i.'" aria-hidden="true"></i>';
-		else echo '<i class="fa fa-star-o" id="'.$i.'" aria-hidden="true"></i>';
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 	}
 }
 function mdocs_display_download_btn($the_mdoc) {
@@ -313,11 +301,7 @@ function mdocs_display_download_btn($the_mdoc) {
 	}
 }
 function mdocs_display_description($the_mdoc) {
-<<<<<<< HEAD
 	echo stripcslashes($the_mdoc['desc']);
-=======
-	echo $the_mdoc['desc'];
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 }
 function mdocs_display_real_author($the_mdoc) {
 	if(isset($the_mdoc['author']))	echo $the_mdoc['author'];
@@ -325,11 +309,6 @@ function mdocs_display_real_author($the_mdoc) {
 function mdocs_display_file_size($the_mdoc) {
 	$upload_dir = wp_upload_dir();
 	$mdocs_file = $upload_dir['basedir'].'/mdocs/'.$the_mdoc['filename'];
-	echo mdocs_convert_bytes(filesize($mdocs_file));
-	
+	echo mdocs_convert_bytes(filesize($mdocs_file));	
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 ?>

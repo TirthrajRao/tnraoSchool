@@ -18,13 +18,10 @@ function mdocs_get_table_atts() {
 	$sa = get_option('mdocs-displayed-file-info');
 	foreach($sa as $index => $type) {
 		if(!isset($type['show'])) $sa[$index]['show'] = false;
-<<<<<<< HEAD
 		if(!isset($type['form-data']['show-in-form'])) $sa[$index]['form-data']['show-in-form'] = false;
 		if(!isset($type['form-data']['disabled-in-form'])) $sa[$index]['form-data']['disabled-in-form'] = false;
 		if(!isset($type['form-data']['default'])) $sa[$index]['form-data']['default'] = '';
 		//if(!isset($type['form-data']['show-in-form'])) $sa[$index]['form-data']['show-in-form'] = false;
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 	}
 	return $sa;
 }
@@ -158,7 +155,6 @@ function mdocs_zip_archive_errors($code) {
 			return 'An unknown error has occurred('.intval($code).')';
 	}             
 }
-<<<<<<< HEAD
 function mdocs_delete_file() {
 	$mdocs_file = mdocs_get_file_by(mdocs_sanitize_string($_REQUEST['mdocs-id']), 'id');
 	$upload_dir = wp_upload_dir();
@@ -172,8 +168,6 @@ function mdocs_delete_file() {
 		$boxview->deleteFile($mdocs_file);
 	}
 }
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 /**
  * Returns an array of date values.
  * @param string $date The date string sent to be converted. eg 02-12-2016 9:12am
@@ -232,7 +226,6 @@ function mdocs_format_unix_epoch($gmdate=null) {
  * @param string $search_index The array key to use for searching for the documents array data.
  * @ return An array of data for the specific document.
  */
-<<<<<<< HEAD
 function get_the_mdoc_by($search_value, $search_index,$return_index=false) {
 	$mdocs = mdocs_array_sort();
 	foreach($mdocs as $index => $doc) {
@@ -240,14 +233,12 @@ function get_the_mdoc_by($search_value, $search_index,$return_index=false) {
 			$doc['index'] = $index;
 			if($return_index == true) return $index;
 			else return $doc;
-=======
 function get_the_mdoc_by($search_value, $search_index) {
 	$mdocs = get_option('mdocs-list');
 	foreach($mdocs as $index => $doc) {
 		if($search_value == $doc[$search_index]) {
 			$doc['index'] = $index;
 			return $doc;
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 			break;
 		}
 	}
@@ -255,7 +246,6 @@ function get_the_mdoc_by($search_value, $search_index) {
 function mdocs_get_file_by($search_value, $search_index) {
 	return get_the_mdoc_by($search_value, $search_index);
 }
-<<<<<<< HEAD
 function mdocs_get_file_index_by($search_value, $search_index) {
 	return get_the_mdoc_by($search_value, $search_index,true);
 }
@@ -276,26 +266,18 @@ function mdocs_delete_file_by($search_value, $search_index) {
 		}
 	}
 }
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 /**
  * Checks whether to hide the file type icon if false, then return a html image string of the files type.
  * @param array $the_mdoc The mDocs file to be processsed
  * @return string An html string of the files type.
  */
-<<<<<<< HEAD
 function mdocs_get_file_type_icon($the_mdoc, $override=false, $padding=false, $just_link=false) {
 	if(get_option('mdocs-hide-file-type-icon') == false || $override == true) {
-=======
-function mdocs_get_file_type_icon($the_mdoc) {
-	if(get_option('mdocs-hide-file-type-icon') == false) {
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		$file_type = wp_check_filetype($the_mdoc['filename']);
 		if($file_type['ext'] == false) {
 			$exp = explode('.',$the_mdoc['filename']);
 			$file_type['ext'] = strtolower($exp[1]);
 		} else $file_type['ext'] = strtolower($file_type['ext']);
-<<<<<<< HEAD
 		if($padding) $padding = 'style="margin-left: 15%"';
 		else $padding = '';
 		if($just_link == false) {
@@ -305,10 +287,6 @@ function mdocs_get_file_type_icon($the_mdoc) {
 			if(file_exists(MDOCS_PATH.'assets/imgs/filetype-icons/'.$file_type['ext'].'.png'))  return plugins_url().'/memphis-documents-library/assets/imgs/filetype-icons/'.$file_type['ext'].'.png';
 			else $return = plugins_url().'/memphis-documents-library/assets/imgs/filetype-icons/unknow.png';
 		}
-=======
-		if(file_exists(MDOC_PATH.'assets/imgs/filetype-icons/'.$file_type['ext'].'.png'))  return '<img src="'.plugins_url().'/memphis-documents-library/assets/imgs/filetype-icons/'.$file_type['ext'].'.png" class="hidden-xs hidden-sm hidden-md" style="padding-right: 5px; float: left;"/>';
-		else $return = '<img src="'.plugins_url().'/memphis-documents-library/assets/imgs/filetype-icons/unknow.png" class="hidden-xs hidden-sm hidden-md"/>';
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 	}
 }
 /**
@@ -502,10 +480,7 @@ function mdocs_process_file($file, $import=false) {
 /**
  * Simple check to stop users from doing the same action more than once.
  */
-<<<<<<< HEAD
 /*
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 function mdocs_nonce() {
 	if(get_option('mdocs-disable-sessions') == false && function_exists('session_status')) {
 		if(session_status() == 2) session_write_close();
@@ -536,7 +511,6 @@ function mdocs_is_sessions_enabled() {
 		return session_id() === '' ? false : true;
 	}
 }
-<<<<<<< HEAD
 */
 function mdocs_sort_file_info() {
 	$file_info = get_option('mdocs-displayed-file-info');
@@ -574,8 +548,6 @@ function mdocs_sort_array($orderby=null, $sort_type=null, $the_array=null) {
 	$mdocs = array_values($mdocs);
 	return $mdocs;
 }
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 function mdocs_array_sort($the_array=null, $orderby=null, $sort_types=null, $is_widget=false) {
 	if($the_array == null) $the_array = get_option('mdocs-list');
 	if($orderby == null) $orderby = get_option('mdocs-sort-type');
@@ -597,10 +569,6 @@ function mdocs_array_sort($the_array=null, $orderby=null, $sort_types=null, $is_
 				$sortArray[$key][] = $value; 
 			} 
 		}
-<<<<<<< HEAD
-=======
-		
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		if($orderby == 'file-size') $orderby = 'size';
 		elseif($orderby == 'download') $orderby = 'downloads';
 		elseif($orderby == 'real-author') $orderby = 'author';
@@ -615,7 +583,6 @@ function mdocs_array_sort($the_array=null, $orderby=null, $sort_types=null, $is_
 	} else return array();
 }
 
-<<<<<<< HEAD
 function mdocs_errors($msg, $type='updated', $frontend=false) {
 	if($type == 'error') {
 		$msg = '<div class="alert alert-danger" role="alert"><strong>'.__('Memphis Error','memphis-documents-library').':</strong><p>'.$msg.'</p></div>';
@@ -637,7 +604,6 @@ function mdocs_errors($msg, $type='updated', $frontend=false) {
 	</script>
 	<?php
 	}
-=======
 function mdocs_errors($error, $type='updated') {
 	if($type == 'error') {
 		$error = '<strong>'.__('Memphis Error','memphis-documents-library').': </strong><br>'.$error;
@@ -651,7 +617,6 @@ function mdocs_errors($error, $type='updated') {
 		<div class="alert alert-<?php echo $alert; ?>"><?php _e($error); ?></div>
 	</div>
     <?php
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 }
 /**
  * Checks whether the mdocs folder is read and writable.
@@ -676,11 +641,7 @@ function mdocs_display_folder_options_menu($folders, $current_folder='', $depth=
 	foreach( $folders as $index => $cat ){
 		if($current_folder === $cat['slug']) $is_selected = 'selected="selected"';
 		else $is_selected = '';
-<<<<<<< HEAD
 		if($echo) echo '<option  value="'.$cat['slug'].'" '.$is_selected.'>'.$nbsp.stripcslashes($cat['name']).'</option>';
-=======
-		if($echo) echo '<option  value="'.$cat['slug'].'" '.$is_selected.'>'.$nbsp.$cat['name'].'</option>';
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		if(count($cat['children']) > 0) { 
 			mdocs_display_folder_options_menu($cat['children'], $current_folder ,$cat['depth']+1);
 		}
@@ -714,20 +675,14 @@ function mdocs_get_the_folder($current_folder=null, $shortcode=null) {
 	if(is_string($current_folder) && $current_folder != '') $current_folder = $current_folder;
 	elseif($current_folder != null && !isset($_GET['mdocs-cat']) && isset($current_folder['cat'])) $current_folder = $current_folder['cat'];
 	elseif(isset($_GET['mdocs-cat']) && $current_folder == null) $current_folder = mdocs_sanitize_string($_GET['mdocs-cat']);
-<<<<<<< HEAD
-	elseif(isset($_GET['mdocs-att']) && $shortcode != $_GET['mdocs-att']) $current_folder = $shortcode;
-=======
-	
 	elseif(isset($_GET['mdocs-att']) && $shortcode != $_GET['mdocs-att']) $current_folder = $shortcode;
 	
-	
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
+	elseif(isset($_GET['mdocs-att']) && $shortcode != $_GET['mdocs-att']) $current_folder = $shortcode;
 	elseif(isset($_GET['mdocs-cat']) && $current_folder != null) $current_folder = mdocs_sanitize_string($_GET['mdocs-cat']);
 	else $current_folder = $cats[0]['name'];
 	return mdocs_recursive_search(get_option('mdocs-cats'),$current_folder);
 }
 /**
-<<<<<<< HEAD
  * Returns the folder data.
  * @param string $slug The slug of the folder that is being searched for.
  * @return array The folder data.
@@ -736,8 +691,6 @@ function mdocs_get_the_folder_by_slug($slug) {
 	return mdocs_recursive_search(get_option('mdocs-cats'),$slug);
 }
 /**
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
  * Returns the permalink to the WordPress post.
  * @param array|string $id Either a post array or a post id which will be used to generate a permalink.
  * @return string $permalink The permalink string.
@@ -767,7 +720,6 @@ function mdocs_get_num_cols() {
  * @param string $html The html string.
  * @return string The html string of all the parents.
  */
-<<<<<<< HEAD
 function mdocs_get_tabs($child, $tabs = array('parent-tab' => '', 'current-tab' => '&emsp;&emsp;', 'child-tab' => '&emsp;&emsp;&emsp;&emsp;'), $data) {
 	$parent = mdocs_get_the_folder($child);
 	$emsp = '&emsp;&emsp;';
@@ -787,7 +739,6 @@ function mdocs_get_tabs($child, $tabs = array('parent-tab' => '', 'current-tab' 
 	}
 	return $tabs;
 }
-=======
 function mdocs_get_parents($child, $permalink='', $att=null, $tabs = array('parent-tab' => '', 'current-tab' => '&emsp;&emsp;', 'child-tab' => '&emsp;&emsp;&emsp;&emsp;')) {
 	$parent = mdocs_get_the_folder($child);
 	$emsp = '&emsp;&emsp;';
@@ -845,7 +796,6 @@ function mdocs_display_sub_folders($current_cat, $att=null) {
 	if(get_option('mdocs-list-type') == 'large') echo '</table>';
 	return $num_cols;
 }
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 
 function mdocs_custom_mime_types($existing_mimes=array()) {
 	// Add file extension 'extension' with mime type 'mime/type'
@@ -860,12 +810,7 @@ function mdocs_custom_mime_types($existing_mimes=array()) {
 	return $existing_mimes;
 }
 
-<<<<<<< HEAD
 function mdocs_list_header($show=true,$sortbar_data=null) {
-=======
-function mdocs_list_header($show=true) {
-	//mdocs_load_modals();
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 	$current_cat = mdocs_get_current_cat();
 	if($show) {
 		global $post;
@@ -874,20 +819,16 @@ function mdocs_list_header($show=true) {
 		$cats = get_option('mdocs-cats');
 		$upload_dir = wp_upload_dir();
 		$message = '';
-<<<<<<< HEAD
 		/*
 		if($sortbar_data['is-dashboard'] == false && $sortbar_data != null) {
-=======
 		
 		if(is_admin()) $is_admin = true;
 		else {
 			$is_admin = false;
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 			$permalink = get_permalink($post->ID);
 			if(preg_match('/\?page_id=/',$permalink) || preg_match('/\?p=/',$permalink)) {
 				$permalink = $permalink.'&mdocs-cat=';
 			} else $permalink = $permalink.'?mdocs-cat=';
-<<<<<<< HEAD
 		} else {*/
 			$permalink = '?mdocs-cat=';
 		//}
@@ -902,7 +843,6 @@ function mdocs_list_header($show=true) {
 			
 			
 			if($sortbar_data['is-dashboard'] || $sortbar_data == null) { ?>
-=======
 		}
 		if(is_admin()) mdocs_donate_btn();
 		?>
@@ -911,14 +851,12 @@ function mdocs_list_header($show=true) {
 			<div class="mdocs-admin-preview"></div>
 			<?php if($message != "" && $type != 'update') { ?> <div id="message" class="error" ><p><?php _e($message); ?></p></div> <?php }?>
 			<?php if(is_admin()) { ?>
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 			<h2><?php _e("Documents Library",'memphis-documents-library'); ?></h2>
 			<?php
 			// ERRORS AND UPDATES
 			if(isset($_FILES['mdocs']) && $_FILES['mdocs']['name'] == '' && $_POST['mdocs-type'] == 'mdocs-add')  { mdocs_errors(MDOCS_ERROR_1,'error');  }
 			?>
 			<div class="btn-group" role="group">
-<<<<<<< HEAD
 				<button class="add-update-btn btn btn-danger" data-toggle="modal" data-target="#mdocs-add-update" data-mdocs-id="" data-is-admin="<?php echo $sortbar_data['is-dashboard']; ?>" data-action-type="add-doc"  data-current-cat="<?php echo $sortbar_data['current-folder']; ?>" href=""><i class="fa fa-upload fa-lg" aria-hidden="true"></i> <?php _e('Add New Document','memphis-documents-library'); ?></button>
 				<?php
 				if(current_user_can('mdocs_batch_edit')) { ?>
@@ -926,7 +864,6 @@ function mdocs_list_header($show=true) {
 				<?php }
 				if(current_user_can('mdocs_batch_move')) { ?>
 				<button class="btn btn-default" onclick="mdocs_batch_move()" data-toggle="mdocs-modal" data-target="#mdocs-batch-move"><i class="fa fa-sync" aria-hidden="true"></i> <?php _e('Batch Move', 'memphis-documents-library'); ?></button>
-=======
 				<button class="add-update-btn btn btn-danger" data-toggle="modal" data-target="#mdocs-add-update" data-mdocs-id="" data-is-admin="<?php echo is_admin(); ?>" data-action-type="add-doc"  data-current-cat="<?php echo $current_cat; ?>" href=""><i class="fa fa-upload fa-lg" aria-hidden="true"></i> <?php _e('Add New Document','memphis-documents-library'); ?></button>
 				<?php
 				if(current_user_can('mdocs_batch_edit')) { ?>
@@ -934,7 +871,6 @@ function mdocs_list_header($show=true) {
 				<?php }
 				if(current_user_can('mdocs_batch_move')) { ?>
 				<button class="btn btn-default" onclick="mdocs_batch_move()" data-toggle="mdocs-modal" data-target="#mdocs-batch-move"><i class="fa fa-refresh" aria-hidden="true"></i> <?php _e('Batch Move', 'memphis-documents-library'); ?></button>
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 				<?php }
 				if(current_user_can('mdocs_batch_delete')) { ?>
 				<button class="btn btn-default" onclick="mdocs_batch_delete()" data-toggle="mdocs-modal" data-target="#mdocs-batch-delete"><i class="fa fa-trash" aria-hidden="true"></i> <?php _e('Batch Delete', 'memphis-documents-library'); ?></button>
@@ -968,16 +904,10 @@ function mdocs_list_header($show=true) {
 			</div>
 			<br><br>
 			<?php } ?>
-<<<<<<< HEAD
 			<div class="mdocs-development-warning"></div>
 			<div class="mdoc-navbar-container">
 				<?php
 				if(get_option('mdocs-hide-navbar') == false || $sortbar_data['hide-folder']) {
-=======
-			<div class="mdoc-navbar-container">
-				<?php
-				if(get_option('mdocs-hide-navbar') == false || is_admin()) {
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 				?>
 				<nav class="navbar mdocs-navbar-default" role="navigation" id="mdocs-navbar">
 					<div class="container-fluid">
@@ -995,8 +925,6 @@ function mdocs_list_header($show=true) {
 								<?php
 								if(!empty($cats)) {
 									foreach( $cats as $index => $cat ){
-<<<<<<< HEAD
-										
 										if(isset($_REQUEST['mdocs-cat']) && strpos($_REQUEST['mdocs-cat'], 'mdocs-cat-') === false) {
 											if($sortbar_data['is-dashboard'] || $sortbar_data == null) echo '<li><a href="?page=memphis-documents.php&mdocs-cat='.$cat['slug'].' ">'.__(stripcslashes($cat['name'])).'</a></li>';
 											else echo '<li><a href="'.$permalink.$cat['slug'].'">'.__($cat['name']).'</a></li>';
@@ -1008,11 +936,6 @@ function mdocs_list_header($show=true) {
 										<?php
 										
 										}
-										
-=======
-										if($is_admin) echo '<li><a href="?page=memphis-documents.php&mdocs-cat='.$cat['slug'].' ">'.__($cat['name']).'</a></li>';
-										else echo '<li><a href="'.$permalink.$cat['slug'].'">'.__($cat['name']).'</a></li>';
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 									}
 								}
 								?>
@@ -1026,11 +949,7 @@ function mdocs_list_header($show=true) {
 		<?php
 		
 	} else {
-<<<<<<< HEAD
 		echo '<div class="mdocs"><div class="mdocs-wrap"></div>';
-=======
-		echo '<div class="mdocs-wrap"></div>';
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 	}
 	return $current_cat;
 }
@@ -1050,7 +969,6 @@ function mdocs_get_current_cat($atts=null) {
 	return $current_cat;
 }
 
-<<<<<<< HEAD
 //LOADS ALL SEARCH FILTERS
 add_action( 'init', 'mdocs_load_search_filters' );
 function mdocs_load_search_filters() {
@@ -1062,10 +980,6 @@ function mdocs_load_search_filters() {
 }
 
 // GET ALL MDOCS POST AND DISPLAYS THEM ON THE MAIN PAGE.
-=======
-// GET ALL MDOCS POST AND DISPLAYS THEM ON THE MAIN PAGE.
-add_filter( 'pre_get_posts', 'mdocs_get_posts' );
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 function mdocs_get_posts( $query ) {
 	$remove_post_from_homepage = get_option('mdocs-remove-posts-from-homepage');
 	if($remove_post_from_homepage) {
@@ -1097,13 +1011,7 @@ function mdocs_alter_searchfilters($query) {
 	}
 	return $query;
 }
-<<<<<<< HEAD
 // SHOW HIDE MDOCS MEDIA FILES FROM MENU USING AJAX
-=======
-add_filter('pre_get_posts','mdocs_alter_searchfilters');
-// SHOW HIDE MDOCS MEDIA FILES FROM MENU USING AJAX
-if(get_option('mdocs-show-media-files') == false) add_filter( 'ajax_query_attachments_args', 'show_current_user_attachments', 10, 1 );
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 function show_current_user_attachments( $query = array() ) {
 	$q = new WP_Query(array(
 		'post_type' => 'mdocs-posts',
@@ -1115,10 +1023,6 @@ function show_current_user_attachments( $query = array() ) {
 	return $query;
 }
 // SHOW HIDE MDOCS MEDIA FILES FROM MENU
-<<<<<<< HEAD
-=======
-if(get_option('mdocs-show-media-files') == false) add_filter( 'posts_where', 'mdocs_hide_attachments' );
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 function mdocs_hide_attachments( $where ){
     if( is_user_logged_in() ){
 		if(strpos(basename($_SERVER['REQUEST_URI']), 'upload.php') !== false) {
@@ -1128,19 +1032,11 @@ function mdocs_hide_attachments( $where ){
     return $where;
 }
 // ADD MORE ROBUST SEARCH FUNCTIONALITY
-<<<<<<< HEAD
-=======
-if(get_option('mdocs-show-advanced-search') == true && get_option('mdocs-hide-all-posts') == false) add_filter( 'posts_where', 'mdocs_robust_search' );
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 function mdocs_robust_search( $where ) {
 	$allow_robust = false;
 	if(is_user_logged_in()) $allow_robust = true;
 	elseif(get_option('mdocs-hide-all-posts-non-members') == false && !is_user_logged_in()) $allow_robust = true;
-<<<<<<< HEAD
 	if($allow_robust && !is_admin()) {
-=======
-	if($allow_robust) {
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		global $wp_query, $wpdb;
 		if( isset( $wp_query->query_vars['s'] ) && $wp_query->query_vars['s'] != '') {
 			$mdocs = get_option('mdocs-list');
@@ -1313,8 +1209,6 @@ function mdocs_convert_to_boolean($val) {
 	if($val == 'false'|| $val == false || $val == '' || $val = '0') return false;
 	else return true;
 }
-<<<<<<< HEAD
-
 function mdocs_stop_form_resubmit() {
 ?>
 <script>
@@ -1333,6 +1227,4 @@ function mdocs_hide_dashboard_admin_menu() {
 	<?php
 	}
 }
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 ?>

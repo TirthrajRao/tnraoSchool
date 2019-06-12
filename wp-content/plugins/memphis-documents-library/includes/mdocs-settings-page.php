@@ -50,11 +50,7 @@ function mdocs_settings() {
 	$mdocs_override_time_offset = get_option('mdocs-override-time-offset');
 	$mdocs_override_time_offset_value = get_option('mdocs-override-time-offset-value');
 	$mdocs_disable_sessions = get_option('mdocs-disable-sessions');
-<<<<<<< HEAD
 	//mdocs_manage_roles();
-=======
-	mdocs_manage_roles();
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 	mdocs_list_header();
 ?>
 <h2><?php _e('Library Settings','memphis-documents-library'); ?></h2>
@@ -69,25 +65,15 @@ function mdocs_settings() {
 	<tr>
 		<th><?php _e('System Settings', 'memphis-documents-library'); ?></th>
 		<td>
-<<<<<<< HEAD
 			<!--<h5><?php _e('Disable System Settings', 'memphis-documents-library'); ?></h5>
 			<input type="checkbox" name="mdocs-disable-sessions" value="1"  <?php checked(1, $mdocs_disable_sessions) ?> /> <span><?php _e('Disable Sessions', 'memphis-documents-library'); ?></span><br>
 			<small><?php _e('This setting might result in duplicate files being added, deleted, or other actions.', 'memphis-documents-library'); ?></small>-->
-=======
-			<h5><?php _e('Disable System Settings', 'memphis-documents-library'); ?></h5>
-			<input type="checkbox" name="mdocs-disable-sessions" value="1"  <?php checked(1, $mdocs_disable_sessions) ?> /> <span><?php _e('Disable Sessions', 'memphis-documents-library'); ?></span><br>
-			<small><?php _e('This setting might result in duplicate files being added, deleted, or other actions.', 'memphis-documents-library'); ?></small>
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 			<h5><?php _e('Disable Thrid Party Includes'); ?></h5>
 			<input type="checkbox" name="mdocs-disable-bootstrap" value="1"  <?php checked(1,$mdocs_disable_bootstrap) ?> /> <span><?php _e('Bootstrap - Frontend', 'memphis-documents-library'); ?></span>
 			<input type="checkbox" name="mdocs-disable-bootstrap-admin" value="1"  <?php checked(1,get_option('mdocs-disable-bootstrap-admin')) ?> /> <span><?php _e('Bootstrap - Dashboard', 'memphis-documents-library'); ?></span>
 			<input type="checkbox" name="mdocs-dropdown-toggle-fix" value="1"  <?php checked(1,$mdocs_dropdown_toggle_fix) ?> /> <span><?php _e('Bootstrap Dropdown Fix', 'memphis-documents-library'); ?></span><br>
 			<small><?php _e('Using one, all or none of these Bootstrap fixes, may help.', 'memphis-documents-library'); ?></small><br>
-<<<<<<< HEAD
 			<input type="checkbox" name="mdocs-disable-jquery" value="1"  <?php checked(1,$mdocs_disable_jquery) ?> /> <span><?php _e('jQuery', 'memphis-documents-library'); ?></span><br>
-=======
-			<input type="checkbox" name="mdocs-disable-jquery" value="1"  <?php checked(1,$mdocs_disable_jquery) ?> /> <span><?php _e('jQuery'); ?></span><br>
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 			<input type="checkbox" name="mdocs-disable-fontawesome" value="1"  <?php checked(1,$mdocs_disable_fontawesome) ?> /> <span><?php _e('Fontawesome', 'memphis-documents-library'); ?></span><br>
 			<h5><?php _e('Document Preview Settings', 'memphis-documents-library'); ?></h5>
 			<input type="radio" name="mdocs-preview-type" value="google" <?php checked('google', $mdocs_preview_type) ?>> <?php _e('Use Local Document Preview', 'memphis-documents-library'); ?> - <small><i>
@@ -96,13 +82,9 @@ function mdocs_settings() {
 			<label><?php _e('Box View Key','memphis-documents-library'); ?></label><br>
 			<input style="width: 80%;" type="text" value="<?php echo get_option('mdocs-box-view-key'); ?>" name="mdocs-box-view-key"  placeholder="<?php _e('Enter your key here', 'memphis-documents-library'); ?>"/><br>
 			<a href="https://developers.box.com" target="_blank" alt="<?php _e('Login to Box Developer site to get your key.', 'memphis-documents-library'); ?>"><?php _e('Login to Box Developer site to get your key.', 'memphis-documents-library'); ?></a><br>
-<<<<<<< HEAD
 			<a href="https://kingofnothing.net/creating-a-box-api-developer-key-for-memphis-documents-library/" target="_blank" alt="<?php _e('Creating a Box API Developer Key for Memphis Documents Library.', 'memphis-documents-library'); ?>"><?php _e('Creating a Box API Developer Key for Memphis Documents Library.'); ?></a><br>
 			<h5><?php _e('Box View Options', 'memphis-documents-library'); ?></h5>
 			<input type="checkbox" name="mdocs-box-show-print-and-download" value="1"  <?php checked(1,get_option('mdocs-box-show-print-and-download')) ?> /> <span><?php _e('Show Print and Download Buttons', 'memphis-documents-library'); ?></span><br>
-=======
-			<a href="http://kingofnothing.net/creating-a-box-api-developer-key-for-memphis-documents-library/" target="_blank" alt="<?php _e('Creating a Box API Developer Key for Memphis Documents Library.', 'memphis-documents-library'); ?>"><?php _e('Creating a Box API Developer Key for Memphis Documents Library.'); ?></a>				
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		</td>
 		<th></th>
 		<td>
@@ -338,8 +320,6 @@ function mdocs_settings() {
 		</td>
 	</tr>
 	<tr>
-<<<<<<< HEAD
-		
 		<td colspan="4">
 			<h2><?php _e('Document List Configuration','memphis-documents-library'); ?> | <small><?php _e('Controls the style of the document list table', 'memphis-documents-library'); ?></small></h2>
 			<table class="table table-striped">
@@ -401,7 +381,6 @@ function mdocs_settings() {
 	<tr>
 		<th><?php _e('Displayed File Information','memphis-documents-library'); ?><br><br><small><?php _e('Dropdown and Post Page Settings', 'memphis-documents-library'); ?></small></th>
 		<td>
-=======
 		<th><?php _e('Displayed File Information','memphis-documents-library'); ?><br><br><small><?php _e('This hides file information from users.', 'memphis-documents-library'); ?></small></th>
 		<td>
 			<h5><?php _e('Table View Settings','memphis-documents-library'); ?></h5>
@@ -453,7 +432,6 @@ function mdocs_settings() {
 			</table>
 			
 			<h5><?php _e('Dropdown and Post Page Settings','memphis-documents-library'); ?></h5>
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 			<input type="checkbox" name="mdocs-show-social" value="1"  <?php checked( $mdocs_show_social, 1) ?>/> <?php _e('Show Social','memphis-documents-library'); ?><br>
 			<input type="checkbox" name="mdocs-show-share" value="1"  <?php checked( $mdocs_show_share, 1) ?>/>  <?php _e('Show Sharing Button/Link','memphis-documents-library'); ?>
 		</td>
@@ -477,11 +455,8 @@ function mdocs_settings() {
 		<th><?php _e('Widget Settings','memphis-documents-library'); ?></th>
 		<td>
 			<input type="checkbox" name="mdocs-hide-widget-titles" value="1"  <?php checked(1,get_option('mdocs-hide-widget-titles')) ?>/> <?php _e('Hide Widget Titles','memphis-documents-library'); ?><br>
-<<<<<<< HEAD
 			<input type="checkbox" name="mdocs-hide-widget-column-titles" value="1"  <?php checked(1,get_option('mdocs-hide-widget-column-titles')) ?>/> <?php _e('Hide Widget Column Titles','memphis-documents-library'); ?><br>
 			<input type="checkbox" name="mdocs-hide-widget-numbers" value="1"  <?php checked(1,get_option('mdocs-hide-widget-numbers')) ?>/> <?php _e('Hide Widget Numbers','memphis-documents-library'); ?><br>
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		</td>
 		<th></th>
 		<td></td>

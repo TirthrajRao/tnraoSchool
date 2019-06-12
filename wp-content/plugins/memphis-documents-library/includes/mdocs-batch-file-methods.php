@@ -284,21 +284,15 @@ function mdocs_batch_delete_save() {
 		if(is_array($mdocs[$index]['archived'])) foreach($mdocs[$index]['archived'] as $key => $value) @unlink($upload_dir['basedir'].'/mdocs/'.$value);
 		wp_delete_attachment( intval($mdocs[$index]['id']), true );
 		wp_delete_post( intval($mdocs[$index]['parent']), true );
-<<<<<<< HEAD
+
 		if(get_option('mdocs-box-view-key') != ''  && get_option('mdocs-preview-type') == 'box') {
 			$boxview = new mdocs_box_view();
 			$boxview->deleteFile($mdocs[$index]);
 		}
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		if(file_exists($upload_dir['basedir'].'/mdocs/'.$mdocs[$index]['filename'])) @unlink($upload_dir['basedir'].'/mdocs/'.$mdocs[$index]['filename']);
 		unset($mdocs[$index]);
 	}
 	$mdocs = array_values($mdocs);
 	mdocs_save_list($mdocs);
-<<<<<<< HEAD
-	
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 }
 ?>

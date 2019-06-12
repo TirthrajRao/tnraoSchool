@@ -7,35 +7,21 @@ function mdocs_restore_defaults() {
 			<h3 class="panel-title"><?php _e('Restore Memphis Document Library\'s to Defaults','memphis-documents-library'); ?></h3>
 		</div>
 		<div class="panel-body">
-<<<<<<< HEAD
 			<p><?php _e('This will return Memphis Documents Library to its default install state.  All your files, post, and categories will not be remove and all setting will return to their default state.  You can delete everything if you uncheck the "Keep all files, post, and categories." checkbox.  <em>Please backup your files before continuing.</em>','memphis-documents-library'); ?></p>
-=======
-			<p><?php _e('This will return Memphis Documents Library to its default install state.  This means that all you files, post, and categories will be remove and all setting will return to their default state. <em>Please backup your files before continuing.</em>','memphis-documents-library'); ?></p>
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 			<div class="mdocs-clear-both"></div>
 			<br>
 			<form enctype="multipart/form-data" method="post" action="#" class="mdocs-setting-form" id="mdocs-retore-defaults-form">
 				<input type="hidden" name="mdocs-restore-default" value="clean-up" />
-<<<<<<< HEAD
 				<input type="submit" class="btn btn-primary" value="<?php _e('Restore To Default','memphis-documents-library') ?>" />
 				<input type="checkbox" name="mdocs-keep-all-files" checked ><?php _e('Keep all files, post, and categories.', 'memphis-documents-library'); ?>
-=======
-				<?php wp_nonce_field( 'mdocs-restore-defaults' ); ?>
-				<input type="button" class="btn btn-primary" onclick="mdocs_restore_default()" value="<?php _e('Restore To Default','memphis-documents-library') ?>" />
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 			</form>
 		</div>
 	</div>
 	<?php
 }
 function mdocs_restore_default() {
-<<<<<<< HEAD
 	if(isset($_REQUEST['type']) && $_REQUEST['type'] == 'restore') {
 		$blog_id = intval($_REQUEST['blog_id']);
-=======
-	if(isset($_POST['type']) && $_POST['type'] == 'restore') {
-		$blog_id = intval($_POST['blog_id']);
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		if ( is_main_site($blog_id) ) mdocs_single_site_remove();
 		else mdocs_single_site_remove($blog_id);
 	} else { 
@@ -54,7 +40,6 @@ function mdocs_multi_site_remove() {
 		$init_blog = true;
 		foreach($blogs as $blog) {
 			switch_to_blog($blog['blog_id']);
-<<<<<<< HEAD
 			if($init_blog) $results = $wpdb->get_results( 'SELECT * FROM wp_options WHERE option_name LIKE "mdocs%" ', ARRAY_A );
 			else $results = $wpdb->get_results( 'SELECT * FROM wp_'.$blog['blog_id'].'_options WHERE option_name LIKE "mdocs%" ', ARRAY_A );
 			foreach($results as $result) {
@@ -78,8 +63,6 @@ function mdocs_multi_site_remove() {
 				$query = new WP_Query('pagename=mdocuments-library');
 				wp_delete_post( $query->post->ID, true );
 			}
-			
-=======
 			$upload_dir = wp_upload_dir();
 			$mdocs_list = get_option('mdocs-list');
 			if(is_array($mdocs_list)) {
@@ -99,7 +82,6 @@ function mdocs_multi_site_remove() {
 			$query = new WP_Query('pagename=mdocuments-library');
 			wp_delete_post( $query->post->ID, true );
 			$init_blog = false;
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		}
 		restore_current_blog();
 	}
@@ -108,7 +90,6 @@ function mdocs_single_site_remove($blog_id=null) {
 	global $wpdb;
 	$upload_dir = wp_upload_dir();
 	$mdocs_list = get_option('mdocs-list');
-<<<<<<< HEAD
 	if($blog_id == null) $results = $wpdb->get_results( 'SELECT * FROM wp_options WHERE option_name LIKE "mdocs%" ', ARRAY_A );
 	else $results = $wpdb->get_results( 'SELECT * FROM wp_'.$blog_id.'_options WHERE option_name LIKE "mdocs%" ', ARRAY_A ); 
 	foreach($results as $result) {
@@ -131,8 +112,7 @@ function mdocs_single_site_remove($blog_id=null) {
 		$temp_cats[0] = array('base_parent' => '', 'index' => 0, 'parent_index' => 0, 'slug' => 'mdocuments', 'name' => 'Documents', 'parent' => '', 'children' => array(), 'depth' => 0,);
 		update_option('mdocs-cats',$temp_cats, '' , 'no');
 	}
-	
-=======
+
 	if(is_array($mdocs_list)) {
 		foreach($mdocs_list as $the_doc) {
 			wp_delete_attachment( intval($the_doc['id']), true );
@@ -147,7 +127,6 @@ function mdocs_single_site_remove($blog_id=null) {
 	if(is_dir($upload_dir['basedir'].'/mdocs/')) rmdir($upload_dir['basedir'].'/mdocs/');
 	$query = new WP_Query('pagename=mdocuments-library');
 	wp_delete_post( $query->post->ID, true );
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 }
 
 ?>

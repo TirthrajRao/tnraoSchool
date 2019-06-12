@@ -20,7 +20,6 @@ class mdocs_last_updated extends WP_Widget {
 		if(get_option('mdocs-hide-widget-titles') == false) _e('Last Updated', 'memphis-documents-library');
 		echo $after_title;
 		?>
-<<<<<<< HEAD
 		<table class="table table-condensed mdocs-widget-table">
 			<tr>
 				<?php if(get_option('mdocs-hide-widget-column-titles') == false) { ?>
@@ -42,7 +41,6 @@ class mdocs_last_updated extends WP_Widget {
 				echo '</tr>';
 				$item_index++;
 			} else $instance['lu-count']++;
-=======
 		<style>
 			.mdocs-widget-table th { text-align: center; }
 		</style>
@@ -61,7 +59,6 @@ class mdocs_last_updated extends WP_Widget {
 			echo '<td><a href="'.$permalink.'null" >'.$the_list[$i]['name'].'</a></td>';
 			echo '<td class="mdocs-widget-date" ><small>'.date(get_option('mdocs-date-format'), $the_list[$i]['modified']).'</small></td>';
 			echo '</tr>';
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		}
 		?>
 		</table>
@@ -71,26 +68,17 @@ class mdocs_last_updated extends WP_Widget {
 	function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
 		$instance['lu-count'] = strip_tags( $new_instance['lu-count'] );
-<<<<<<< HEAD
 		$instance['lu-show-all'] = strip_tags( $new_instance['lu-show-all'] );
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		return $instance;
 	}
 	function form( $instance ) {
 		if(!isset($instance['lu-count'])) $instance['lu-count'] = 5;
-<<<<<<< HEAD
 		if(!isset($instance['lu-show-all'])) $instance['lu-show-all'] = '';
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		?>
 		<p>
 			<label>Number of Items in List:</label>
 			<input style="width: 100%;" type="text" name="<?php echo $this->get_field_name('lu-count'); ?>" value="<?php echo esc_attr($instance['lu-count']); ?>" />
-<<<<<<< HEAD
 			<input type="checkbox" name="<?php echo $this->get_field_name('lu-show-all'); ?>" <?php echo checked($instance['lu-show-all'], 'on'); ?>/> <?php _e('Show All File', 'memphis-documents-library'); ?>
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		</p>
 		<?php
 	}
@@ -110,7 +98,6 @@ class mdocs_top_rated extends WP_Widget {
 		if(get_option('mdocs-hide-widget-titles') == false)  _e('Top Rated', 'memphis-documents-library'); 
 		echo $after_title;
 		?>
-<<<<<<< HEAD
 		<table class="table table-condensed mdocs-widget-table">
 			<tr>
 				<?php if(get_option('mdocs-hide-widget-column-titles') == false) { ?>
@@ -138,7 +125,6 @@ class mdocs_top_rated extends WP_Widget {
 				echo '</tr>';
 				$item_index++;
 			} else $instance['tr-count']++;
-=======
 		<style>
 			.mdocs-widget-table th { text-align: center; }
 		</style>
@@ -163,7 +149,6 @@ class mdocs_top_rated extends WP_Widget {
 			}
 			echo '</small></td>';
 			echo '</tr>';
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		}
 		?>
 		</table>
@@ -173,26 +158,17 @@ class mdocs_top_rated extends WP_Widget {
 	function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
 		$instance['tr-count'] = strip_tags( $new_instance['tr-count'] );
-<<<<<<< HEAD
 		$instance['tr-show-all'] = strip_tags( $new_instance['tr-show-all'] );
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		return $instance;
 	}
 	function form( $instance ) {
 		if(!isset($instance['tr-count'])) $instance['tr-count'] = 5;
-<<<<<<< HEAD
 		if(!isset($instance['tr-show-all'])) $instance['tr-show-all'] = '';
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		?>
 		<p>
 			<label>Number of Items in List:</label>
 			<input style="width: 100%;" type="text" name="<?php echo $this->get_field_name('tr-count'); ?>" value="<?php echo esc_attr($instance['tr-count']); ?>" />
-<<<<<<< HEAD
 			<input type="checkbox" name="<?php echo $this->get_field_name('tr-show-all'); ?>" <?php echo checked($instance['tr-show-all'], 'on'); ?>/> <?php _e('Show All File', 'memphis-documents-library'); ?>
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		</p>
 		<?php
 	}
@@ -212,7 +188,6 @@ class mdocs_top_downloads extends WP_Widget {
 		if(get_option('mdocs-hide-widget-titles') == false) _e('Top Downloads', 'memphis-documents-library');
 		echo $after_title;
 		?>
-<<<<<<< HEAD
 		<table class="table table-condensed mdocs-widget-table">
 			<tr>
 				<?php if(get_option('mdocs-hide-widget-column-titles') == false) { ?>
@@ -234,7 +209,6 @@ class mdocs_top_downloads extends WP_Widget {
 				echo '</tr>';
 				$item_index++;
 			} else $instance['td-count']++;
-=======
 		<style>
 			.mdocs-widget-table th { text-align: center; }
 		</style>
@@ -253,7 +227,6 @@ class mdocs_top_downloads extends WP_Widget {
 			echo '<td><a href="'.$permalink.'null" >'.$the_list[$i]['name'].'</a></td>';
 			echo '<td class="text-center">'.$the_list[$i]['downloads'].'</td>';
 			echo '</tr>';
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		}
 		?>
 		</table>
@@ -263,26 +236,17 @@ class mdocs_top_downloads extends WP_Widget {
 	function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
 		$instance['td-count'] = strip_tags( $new_instance['td-count'] );
-<<<<<<< HEAD
 		$instance['td-show-all'] = strip_tags( $new_instance['td-show-all'] );
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		return $instance;
 	}
 	function form( $instance ) {
 		if(!isset($instance['td-count'])) $instance['td-count'] = 5;
-<<<<<<< HEAD
 		if(!isset($instance['td-show-all'])) $instance['td-show-all'] = '';
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		?>
 		<p>
 			<label>Number of Items in List:</label>
 			<input style="width: 100%;" type="text" name="<?php echo $this->get_field_name('td-count'); ?>" value="<?php echo esc_attr($instance['td-count']); ?>" />
-<<<<<<< HEAD
 			<input type="checkbox" name="<?php echo $this->get_field_name('td-show-all'); ?>" <?php echo checked($instance['td-show-all'], 'on'); ?>/> <?php _e('Show All File', 'memphis-documents-library'); ?>
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		</p>
 		<?php
 	}

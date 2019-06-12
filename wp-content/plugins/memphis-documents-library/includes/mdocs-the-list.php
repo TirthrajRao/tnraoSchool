@@ -1,5 +1,4 @@
 <?php
-<<<<<<< HEAD
 function mdocs_the_list($att=null, $refresh=false) {
 	global $post;
 	
@@ -110,7 +109,6 @@ function mdocs_the_list($att=null, $refresh=false) {
 	if(get_option('mdocs-hide-sortbar') == false && !isset($att['single-file'])) { 	?>
 	<thead>
 	<?php $num_tds = mdocs_build_sortbar($sortbar_data); ?>
-=======
 
 function mdocs_the_list($att=null) {
 	global $post;
@@ -156,14 +154,11 @@ function mdocs_the_list($att=null) {
 		}
 		?>
 	</tr>
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 	</thead>
 	<?php
 		if(get_option('mdocs-hide-footer') == false) { ?>
 		<tfoot>
-<<<<<<< HEAD
 		<?php $num_tds = mdocs_build_sortbar($sortbar_data); ?>
-=======
 		<tr class="hidden-sm hidden-xs">
 			<?php if(is_admin()) { ?> <th id="batch"><input type="checkbox" name="mdocs-batch-select-all" id="mdocs-batch-select-all"/></th> <?php } ?>
 			<th class="mdocs-sort-option" data-disable-user-sort="<?php echo $disable_user_sort; ?>" data-sort-type="name" data-current-cat="<?php echo $current_cat; ?>" data-permalink="<?php echo $permalink; ?>"><?php _e('Name','memphis-documents-library'); ?><?php if($mdocs_sort_type == 'name') echo $mdocs_sort_style_icon; ?></th>
@@ -175,30 +170,25 @@ function mdocs_the_list($att=null) {
 				<?php } 
 			}?>
 		</tr>
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		</tfoot>
 		<?php
 		}
 	}
 	// SUB CATEGORIES
-<<<<<<< HEAD
 	if($sortbar_data['hide-folder'] == false) {
 		$hide_sub_folders = get_option('mdocs-hide-subfolders');
 		$hide_all_sub_folder = get_option('mdocs-hide-all-subfolders');
 		if(!isset($att['cat']) && $hide_all_sub_folder == false) mdocs_display_folders($folder, $sortbar_data); 
 		elseif(isset($folder['children']) && $hide_sub_folders == false && isset($att['cat'])) mdocs_display_folders($folder, $sortbar_data);
-=======
 	if(!isset($att['single-file'])) {
 		$hide_sub_folders = get_option('mdocs-hide-subfolders');
 		$hide_all_sub_folder = get_option('mdocs-hide-all-subfolders');
 		if(!isset($att['cat']) && $hide_all_sub_folder == false) mdocs_display_sub_folders($current_cat_array, 'null'); 
 		elseif(isset($current_cat_array['children']) && $hide_sub_folders == false && isset($att['cat'])) mdocs_display_sub_folders($current_cat_array, $att['cat']);
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 	}
 	// LOAD FILES
 	$has_one_file = false;
 	if(isset($att['single-file'])) {
-<<<<<<< HEAD
 		$the_mdoc = get_the_mdoc_by($att['single-file'], 'id');
 		if($the_mdoc == null ) $the_mdoc = get_the_mdoc_by($att['single-file'], 'filename');
 		if(mdocs_check_file_rights($the_mdoc)) {
@@ -216,7 +206,6 @@ function mdocs_the_list($att=null) {
 				if(current_user_can( 'manage_options' )) $show_file = true;
 				$current_user = wp_get_current_user();
 				if($current_user->user_login == $the_mdoc['owner']) $show_file = true;
-=======
 		$the_mdoc = get_the_mdoc_by($att['single-file'], 'filename');
 		if(mdocs_check_file_rights($the_mdoc)) {
 			$has_one_file = true;
@@ -231,7 +220,6 @@ function mdocs_the_list($att=null) {
 				if(get_option( 'mdocs-hide-all-files' ) === false) $show_file = false;
 				if(current_user_can( 'manage_options' )) $show_file = true;
 				$current_user = wp_get_current_user();
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 				if(is_array($the_mdoc['contributors'])) {
 					foreach($the_mdoc['contributors'] as $index => $role) {
 						if($current_user->user_login == $role) $show_file = true;
@@ -241,25 +229,17 @@ function mdocs_the_list($att=null) {
 				if($show_file) {
 					$has_one_file = true;
 					$mdocs_post = get_post($the_mdoc['parent']);
-<<<<<<< HEAD
 					mdocs_display_file_info($the_mdoc, $index, $current_folder, $sortbar_data);
-=======
-					mdocs_display_file_info($the_mdoc, $index, $current_cat);
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 				}
 			} 
 		}
 	}
 	if($has_one_file == false && get_option('mdocs-show-no-file-found')) {
-<<<<<<< HEAD
 		if(isset($att['single-file'])) $num_tds = 1;
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		?><tr><td colspan="<?php echo $num_tds; ?>"><p class="mdocs-nofiles" ><?php _e('No files found in this folder.','memphis-documents-library'); ?></p></td></tr><?php
 	}
 	
 	?></table></div></div><?php
-<<<<<<< HEAD
 	if(!isset($_REQUEST['type']) || $_REQUEST['type'] == 'none') {
 		$the_list = ob_get_clean();
 	} else $the_list = null;
@@ -298,9 +278,4 @@ function mdocs_build_sortbar($data) {
 	<?php
 	return $num_tds;
 }
-=======
-	$the_list = ob_get_clean();
-	return $the_list;
-}
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 ?>

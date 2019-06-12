@@ -1,6 +1,5 @@
 === Memphis Documents Library ===
 Contributors: bhaldie
-<<<<<<< HEAD
 Donate link: https://www.kingofnothing.net/
 Tags: plugin,documents,memphis,bhaldie,WordPress,library,repository,files,versions, import, export,document management, file management, customer file manager, distribution, document management, document manager, enterprise document control, file manager, file sharing, file uploads, Retrieval & storage, version, versioning
 License: GPLv2 or later
@@ -9,7 +8,7 @@ Requires PHP: 5.6
 Requires at least: 3.5
 Tested up to: 5.2
 Stable tag: 3.9.20
-=======
+
 Donate link: http://www.kingofnothing.net/
 Tags: plugin,documents,memphis,bhaldie,WordPress,library,repository,files,versions, import, export,document management, file management, customer file manager, distribution, document management, document manager, enterprise document control, file manager, file sharing, file uploads, Retrieval & storage, version, versioning
 License: GPLv2 or later
@@ -18,7 +17,6 @@ Requires PHP: 5.5.9
 Requires at least: 3.5
 Tested up to: 4.9.5
 Stable tag: 3.9.3
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 
 A documents library for WordPress.
 
@@ -30,7 +28,6 @@ Memphis Documents Library (mDocs) is a  documents library for WordPress with a r
 
 Finally it is  here the frontend upload file button. Head over to kingofnothing.net to get all the details:
 
-<<<<<<< HEAD
 [Help With Frontend Upload Button](https://kingofnothing.net/frontend-upload-button-help/)
 
 = Creating a Box API Developer Key for Memphis Documents Library =
@@ -44,7 +41,6 @@ Finally it is  here the frontend upload file button. Head over to kingofnothing.
 * *Bug* - Fixed issue with frontend upload and file status, will now save the file as private.
 * *Bug* - Fixed issue with description sorting.
 * *Bug* - Removed some warnings and notices.
-=======
 [Help With Frontend Upload Button](http://kingofnothing.net/frontend-upload-button-help/)
 
 = Creating a Box API Developer Key for Memphis Documents Library =
@@ -56,7 +52,6 @@ Finally it is  here the frontend upload file button. Head over to kingofnothing.
 * *Update* - Cleaned up some css.
 * *Update* - Style changes to mDocs widgets.
 * *Bug* - Fixed permission issue.
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 
 = Memphis Documents Library Features =
 
@@ -70,28 +65,23 @@ Finally it is  here the frontend upload file button. Head over to kingofnothing.
 * Social media buttons for each document.
 * Referential file methodology. This allows for the updating of a file while the link remains the same.
 * Importing of document libraries into your current library, or just migrating to another website.
-<<<<<<< HEAD
 * Exporting you documents libraries for safe backup and store, migration to another website or sharing with someone elsecheck box
 * The ability to create, edit and delete categories and subcategories.
 * Search for files using the WordPress search.
 * Customization of download button view
-=======
 * Exporting you documents libraries for safe backup and store, migration to another website or sharing with someone else.
 * The ability to create, edit and delete categories and subcategories.
 * Search for files using the WordPress search.
 * Customization of download buttonview
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 
 == Feature Requests ==
 
 * Feature - Have the ability to define sort options per folder.
-<<<<<<< HEAD
 * Feature -  Shortcode take parameters to be able to hide version/last mod/etc.
 * Feature - One file added into multiple folders. 
 * Feature - Have the ability to comment on documents and have the owner notified what changes need to be made to the file.
 * Feature - Change the font size of the folders or have them in a gallery like format.
 * Feature - Have a shortcode to display all files by owner, contributor, tag or category.
-=======
 * Feature - Add max file size configuration settings.
 * Feature - Shrink and expand folders.
 * Feature -  Shortcode take parameters to be able to hide version/last mod/etc.
@@ -101,20 +91,17 @@ Finally it is  here the frontend upload file button. Head over to kingofnothing.
 * Feature - Change the font size of the folders or have them in a gallery like format.
 * Feature - Have a shortcode to display all files by tag.
 * Feature - Add a print button.
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 * Feature - Have the ability to create a custom sort order.
 * Feature - Custom input fields.
 * Feature - Restrict file download by user or role.
 * Feature - Permissions in folders instead of each document independently.
 * Feature - Add the ability to add a link back to the mDocs documents list.
 * Feature - Added more level to categories.
-<<<<<<< HEAD
 * Feature - Exposing filepath for indexing website via ElasticSearch.
 * Feature - Add folder structure to the mdocs post page.
 * Feature - Password protected files.
 * Feature - Added categories and tags to batch edit.
 * Feature - Add number of files in each folder.
-=======
 * Feature - Add the ability to change the path name and breadcrumb name.
 * Feature - Exposing filepath for indexing website via ElasticSearch.
 * Feature - Prettified HTML preview.
@@ -125,12 +112,10 @@ Finally it is  here the frontend upload file button. Head over to kingofnothing.
 * Feature - Added categories and tags to batch edit.
 * Feature - Add number of files in each folder.
 * Feature - Add the ability to sort by filename.
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 * Feature - Reordering of the dropdown list.
 * Feature - Add thumbnail support to table view.
 * Feature - Right click dropdown menu.
 * Feature - Frontend uploader have a redirect for non logged in users.
-<<<<<<< HEAD
 * Feature - Add a description for folders.
 * Feature - Maximum upload for users.
 * Feature - Change owner of file.
@@ -142,28 +127,17 @@ Finally it is  here the frontend upload file button. Head over to kingofnothing.
 * Feature - Email document link to users.
 * Feature - Download all files from a folder.
 * Feature - Batch upload keeping folder structure.
-=======
-* Feature - Add active state to to navbar menu.
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 
 == Frequently Asked Questions ==
 
 = Frontend Upload Button Help =
 
-<<<<<<< HEAD
 Head to this link for more information on how to use the shortcode mdoc_upload_btn: [https://kingofnothing.net/frontend-upload-button-help/](https://kingofnothing.net/frontend-upload-button-help/)
-=======
-Head to this link for more information on how to use the shortcode mdoc_upload_btn: (http://kingofnothing.net/frontend-upload-button-help/)
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 
 = Creating a Box API Developer Key for Memphis Documents Library =
 
 I've created a guide to follow if anyone is interested in using the Box preview for Memphis Documents Library:
-<<<<<<< HEAD
 Here is the link to the guide: [https://kingofnothing.net/creating-a-box-api-developer-key-for-memphis-documents-library/](https://kingofnothing.net/creating-a-box-api-developer-key-for-memphis-documents-library/)
-=======
-Here is the link to the guide: (http://kingofnothing.net/creating-a-box-api-developer-key-for-memphis-documents-library/)
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 
 = Supported Documents Types Using Local Preview =
 
@@ -174,11 +148,7 @@ Here is the link to the guide: (http://kingofnothing.net/creating-a-box-api-deve
 
 = Add Page Templates to Memphis Documents Library =
 
-<<<<<<< HEAD
 To add templates to custom posts you will need to download a plugin "Custom Post Type Page Template".  This will allow you to add templates to any custom post including mdocs posts.  Here is the link to the plugin: [https://wordpress.org/plugins/custom-post-type-page-template/](https://wordpress.org/plugins/custom-post-type-page-template/)
-=======
-To add templates to custom posts you will need to download a plugin "Custom Post Type Page Template".  This will allow you to add templates to any custom post including mdocs posts.  Here is the link to the plugin: https://wordpress.org/plugins/custom-post-type-page-template/
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 
 = Non Member Can't Download =
 
@@ -229,7 +199,6 @@ When you click the export button the document library will create a ZIP files fo
 This compressed data, will contain your documents, saved variables, media and posts tied to each document.
 Once you've saved the download file, you can use the Import function in another WordPress installation to import the content from this site.
 
-<<<<<<< HEAD
 = ImageMagick PDF Issue =
 
 If you are getting error like this when displaying the description in mDocs:
@@ -247,8 +216,6 @@ to
 add line
 <policy domain="coder" rights="read|write" pattern="LABEL" />
 
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 = Uninstalling Memphis Documents Library =
 
 When you uninstall the documents library make sure you export all your important files. **All data will be removed on completion of uninstall, this includes files, directories, posts, and media.**
@@ -276,7 +243,6 @@ Once uploaded the configuration menu is located in either the "Memphis" menu wit
 
 == Changelog ==
 
-<<<<<<< HEAD
 = 3.9.20 =
 
 * *Update* - Removed Google Plus.
@@ -434,8 +400,6 @@ Once uploaded the configuration menu is located in either the "Memphis" menu wit
 * *Bug* - Fixed permission issue.
 * *Bug* - Fixed undefined variable issue.
 
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 = 3.9.3 =
 
 * *Update* - Cleaned up some css.

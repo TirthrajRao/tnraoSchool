@@ -51,20 +51,12 @@ function mdocs_register_settings() {
 			update_option('mdocs-list', $backup_list, '' , 'no');
 		}
 		// RUN PATCHES
-<<<<<<< HEAD
 		mdocs_run_patch();
-=======
-		mdocs_patches();
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		// Creating File Structure
 		if(!is_dir($upload_dir['basedir'].'/mdocs/') && $upload_dir['error'] === false) mkdir($upload_dir['basedir'].'/mdocs/');
 		elseif(!is_dir($upload_dir['basedir'].'/mdocs/') && $upload_dir['error'] !== false) mdocs_errors(__('Unable to create the directory "mdocs" which is needed by Memphis Documents Library. Is its parent directory writable by the server?','memphis-documents-library'),'error');
 		//CREATE MDOCS PAGE
-<<<<<<< HEAD
 		if(get_option('mdocs-documents-page-created') == false && get_page_by_path('mdocuments-library') == null ) {
-=======
-		if(get_option('mdocs-documents-page-created') == false) {
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 			$mdocs_page = array(
 				'post_title' => __('Documents','memphis-documents-library'),
 				'post_name' => 'mdocuments-library',
@@ -92,7 +84,6 @@ function mdocs_register_settings() {
 			fclose($fh);
 			chmod($htaccess, 0660);
 		}
-<<<<<<< HEAD
 		// GIVE ALL CAPS TO ADMIN ACCOUNT
 		$the_caps = get_option('mdocs-caps');
 		$admin_role = get_role('administrator');
@@ -106,8 +97,6 @@ function mdocs_register_settings() {
 		// LOAD ROLES AND CAPS
 		mdocs_manage_roles();
 		mdocs_default_caps();
-=======
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 	}
 	
 }
@@ -132,8 +121,6 @@ function mdocs_update_view_private_users() {
 	update_option('mdocs-view-private', $mdocs_roles);
 	return $mdocs_roles;
 }
-<<<<<<< HEAD
-=======
 function mdocs_init_view_private() {
 	$roles = get_editable_roles();
 	$view_private = array();
@@ -143,7 +130,6 @@ function mdocs_init_view_private() {
 	}
 	return $view_private;
 }
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 //MODIFY TINYMCE
 function mdocs_wptiny($initArray){
     $initArray['height'] = '600px';
@@ -170,7 +156,6 @@ function mdocs_admin_script() {
 		//JQUERY
 		wp_enqueue_script("jquery");
 		//BOOTSTRAP
-<<<<<<< HEAD
 		wp_enqueue_style( 'bootstrap.site.min.css', MDOCS_URL.$bootstrap_css_file, array(), MDOCS_SESSION_ID );
 		if(get_option('mdocs-disable-bootstrap-admin') == false) wp_enqueue_script( 'bootstrap.min.js', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array(), MDOCS_SESSION_ID );
 		//FONT-AWESOME STYLE
@@ -183,7 +168,6 @@ function mdocs_admin_script() {
 		wp_enqueue_script('memphis-documents.js',  MDOCS_URL.$mdocs_js, array(), MDOCS_SESSION_ID);
 		if(is_rtl() ) {
 			wp_enqueue_style( 'memphis-documents-rtl.css', MDOCS_URL.'/'.$mdocs_rtl, array(), MDOCS_SESSION_ID );
-=======
 		//wp_register_style( 'bootstrap.min.css', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
 		//wp_enqueue_style( 'bootstrap.min.css' );
 		wp_register_style( 'bootstrap.site.min.css', MDOC_URL.$bootstrap_css_file);
@@ -204,7 +188,6 @@ function mdocs_admin_script() {
 		if(is_rtl() ) {
 			wp_register_style( 'memphis-documents-rtl.css', MDOC_URL.'/'.$mdocs_rtl);
 			wp_enqueue_style( 'memphis-documents-rtl.css' );
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		}
 		//INLINE STYLE
 		mdocs_inline_admin_css('memphis-documents.css');
@@ -235,7 +218,6 @@ function mdocs_script() {
 				wp_enqueue_script("jquery");
 			}
 			//BOOTSTRAP
-<<<<<<< HEAD
 			wp_enqueue_style( 'memphis-bootstrap.min.css', MDOCS_URL.$bootstrap_css_file, array(), MDOCS_SESSION_ID );
 			if(get_option('mdocs-disable-bootstrap') == false && has_shortcode( $post->post_content, 'mdocs' )  || is_plugin_active('so-widgets-bundle/so-widgets-bundle.php') || is_plugin_active('wp_roksprocket/roksprocket.php') || is_plugin_active('woocommerce/woocommerce.php' ) || get_option('mdocs-disable-bootstrap') == false && has_shortcode( $post->post_content, 'mdocs_post_page' ) || get_option('mdocs-disable-bootstrap') == false && has_shortcode( $post->post_content, 'mdocs_upload_btn' ) ) {
 				$handle = 'bootstrap.min.js';
@@ -251,7 +233,6 @@ function mdocs_script() {
 			if(is_rtl() ) wp_enqueue_style( 'memphis-documents-rtl.css', MDOCS_URL.'/'.$mdocs_rtl, array(), MDOCS_SESSION_ID );
 			mdocs_inline_css('memphis-documents.css');
 			mdocs_js_handle('memphis-documents.js');
-=======
 			wp_register_style( 'memphis-bootstrap.min.css', MDOC_URL.$bootstrap_css_file);
 			wp_enqueue_style( 'memphis-bootstrap.min.css' );
 			if(get_option('mdocs-disable-bootstrap') == false && has_shortcode( $post->post_content, 'mdocs' )  || is_plugin_active('so-widgets-bundle/so-widgets-bundle.php') || is_plugin_active('wp_roksprocket/roksprocket.php') || is_plugin_active('woocommerce/woocommerce.php' ) || get_option('mdocs-disable-bootstrap') == false && has_shortcode( $post->post_content, 'mdocs_post_page' ) || get_option('mdocs-disable-bootstrap') == false && has_shortcode( $post->post_content, 'mdocs_upload_btn' ) ) {
@@ -281,7 +262,6 @@ function mdocs_script() {
 			mdocs_js_handle('memphis-documents.js');
 			//wp_enqueue_style( 'wp-color-picker' );
 			//wp_enqueue_script( 'mdocs-color-picker', plugins_url('mdocs-script.js', __FILE__ ), array( 'wp-color-picker' ), false, true );
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		}
 	}
 }
@@ -296,7 +276,6 @@ function mdocs_inline_admin_css($style_name) {
 }
 
 function mdocs_document_ready_wp() {
-<<<<<<< HEAD
 	global $posts;
 	$has_mdocs = false;
 	
@@ -313,7 +292,6 @@ function mdocs_document_ready_wp() {
 	jQuery( document ).ready(function() { mdocs_wp(); });	
 </script>
 <?php
-=======
 	global $post;
 	if(isset($post)) {
 		if(has_shortcode( $post->post_content, 'mdocs_upload_btn' ) || has_shortcode( $post->post_content, 'mdocs_post_page' ) || get_post_type($post) == 'mdocs-posts' || has_shortcode( $post->post_content, 'mdocs' ) || is_plugin_active('so-widgets-bundle/so-widgets-bundle.php')  || is_plugin_active('wp_roksprocket/roksprocket.php') || is_plugin_active('woocommerce/woocommerce.php' )) {
@@ -324,7 +302,6 @@ function mdocs_document_ready_wp() {
 			});	
 		</script>
 	<?php
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		}
 	}
 	
@@ -334,11 +311,7 @@ function mdocs_document_ready_admin() {
 ?>
 <script type="text/javascript">
 	jQuery( document ).ready(function() {
-<<<<<<< HEAD
 		mdocs_admin();
-=======
-		mdocs_admin('<?php echo MDOC_URL; ?>', '<?php echo ABSPATH; ?>');
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 	});	
 </script>
 <?php

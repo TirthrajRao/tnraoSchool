@@ -7,11 +7,9 @@ function mdocs_batch_upload($current_cat) {
 	//$mdocs = get_option('mdocs-list');
 	$cats = get_option('mdocs-cats');
 	$do_complte = false;
-<<<<<<< HEAD
+
 	if(isset($_REQUEST['mdocs-action']) && $_REQUEST['mdocs-action'] ==__('Process FTP Folder','memphis-documents-library')) {
-=======
-	if(isset($_POST['mdocs-action']) && $_POST['mdocs-action'] ==__('Process FTP Folder','memphis-documents-library')) {
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
+
 		$upload_dir = wp_upload_dir();
 		$get_files = scandir($upload_dir['basedir'].'/mdocs-ftp/');
 		$zip_result = array();
@@ -40,11 +38,8 @@ function mdocs_batch_upload($current_cat) {
 		if(!file_exists(sys_get_temp_dir().'/mdocs/')) mkdir(sys_get_temp_dir().'/mdocs/');
 		$zip_result = mdocs_unzip($_FILES['mdocs-batch']['tmp_name'], sys_get_temp_dir());
 		$do_zip = true;
-<<<<<<< HEAD
+
 	} elseif (isset($_REQUEST['mdocs-batch-complete'])) {
-=======
-	} elseif (isset($_POST['mdocs-batch-complete'])) {
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 		$do_complte = true;
 	}
 	mdocs_list_header();
@@ -80,13 +75,9 @@ function mdocs_batch_upload($current_cat) {
 </div>
 <?php } elseif($do_zip) {
 	$cats = get_option('mdocs-cats');
-<<<<<<< HEAD
+
 	if(!isset($_REQUEST['mdocs']['cat'])) $current_cat = key($cats);
 	else $current_cat = $_REQUEST['mdocs']['cat'];
-=======
-	if(!isset($_POST['mdocs']['cat'])) $current_cat = key($cats);
-	else $current_cat = $_POST['mdocs']['cat'];
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 	?>
 		<p><?php if($is_error != '') mdocs_errors($is_error); ?></p>
 		<form class="mdocs-uploader-form" enctype="multipart/form-data" action="<?php echo get_site_url().'/wp-admin/admin.php?page='.$post_page.'&mdocs-cat='.$post_cat; ?>" method="POST">
@@ -154,7 +145,7 @@ function mdocs_batch_upload($current_cat) {
 	</div>
 			<?php
 		}
-<<<<<<< HEAD
+
 } elseif ($_REQUEST['mdocs-batch-complete'] ) {
 	$file = array();
 	$current_user = wp_get_current_user();
@@ -165,17 +156,6 @@ function mdocs_batch_upload($current_cat) {
 		foreach($_REQUEST['mdocs']['tmp-file'] as $index => $tmp) {
 			$valid_mime_type = false;
 			$file['name'] = $_REQUEST['mdocs']['filename'][$index];
-=======
-} elseif ($_POST['mdocs-batch-complete'] ) {
-	$file = array();
-	$current_user = wp_get_current_user();
-	$batch_log = '';
-	if(isset($_POST['mdocs'])) {
-		$_POST['mdocs'] = mdocs_sanitize_array($_POST['mdocs']);
-		foreach($_POST['mdocs']['tmp-file'] as $index => $tmp) {
-			$valid_mime_type = false;
-			$file['name'] = $_POST['mdocs']['filename'][$index];
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 			$result = wp_check_filetype($tmp);
 			$file['tmp_name'] = $tmp;
 			$file['error'] = 0;
@@ -210,26 +190,16 @@ function mdocs_batch_upload($current_cat) {
 						'id'=>(string)$upload['attachment_id'],
 						'parent'=>(string)$upload['parent_id'],
 						'filename'=>$upload['filename'],
-<<<<<<< HEAD
+
 						'name'=>$_REQUEST['mdocs']['name'][$index],
 						'desc'=>'',
 						'type'=>$mdocs_fle_type,
 						'cat'=>$_REQUEST['mdocs']['cat'][$index],
-=======
-						'name'=>$_POST['mdocs']['name'][$index],
-						'desc'=>'',
-						'type'=>$mdocs_fle_type,
-						'cat'=>$_POST['mdocs']['cat'][$index],
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 						'owner'=>$current_user->user_login,
 						'contributors'=>array(),
 						'size'=>(string)$file['size'],
 						'modified'=>$date['gmdate'],
-<<<<<<< HEAD
 						'version'=>(string)$_REQUEST['mdocs']['version'][$index],
-=======
-						'version'=>(string)$_POST['mdocs']['version'][$index],
->>>>>>> 416b05e6266477d87b7bcf7ec2d9ef98abab386e
 						'show_social'=>(string)'on',
 						'non_members'=> (string)'on',
 						'file_status'=>(string)'public',
